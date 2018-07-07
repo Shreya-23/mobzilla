@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+
+div .prod{
+	
+		height:150px;
+		width:150px;
+		/* background:beige; */
+		border: 3px solid black;
+	}
+	
+		
+ul {
+	list-style-type: none;
+	}
+	
+ul li {
+	
+    float: left;
+	padding: 10px;
+
+	}	
+	
+		
+	img {
+	
+		height:150px;
+		width:150px;
+		/* background:beige; */
+		border: 3px solid black;
+	}
+	
+	#banner, #allProducts {
+		position: relative;
+	}
+	
