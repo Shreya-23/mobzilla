@@ -5,6 +5,7 @@ package com.mobzilla.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,6 +23,14 @@ public class HomeController {
 		model.addAttribute("ProductList",service.getAllProducts());
 		return "Home";
 		
+	}
+	
+	@RequestMapping(value="/id={id}/ProductDesc.shop",method=RequestMethod.GET)
+	public String getProductDesc(@PathVariable("id") int id, Model model){
+		
+		model.addAttribute("ProductDesc",service.getProductDesc(id));
+		System.out.println("desc page started image:"+service.getProductDesc(id).getProductImgUrl());
+		return "ProductDesc";
 	}
 
 }

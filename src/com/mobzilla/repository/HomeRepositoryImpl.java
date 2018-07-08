@@ -2,6 +2,7 @@ package com.mobzilla.repository;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -28,6 +29,21 @@ public class HomeRepositoryImpl implements HomeRepository {
 		
 		txn.commit();
 		return products;
+	}
+
+	@Override
+	public ProductBean getProductDesc(int id) {
+		// TODO Auto-generated method stub
+		String hql="FROM ProductBean P WHERE P.productId =:product_id";
+		
+		Session session=sessionFactory.getCurrentSession();
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		query.setParameter("product_id", id);
+		ProductBean product=(ProductBean) query.list().get(0);
+		txn.commit();
+		
+		return product;
 	}
 
 }

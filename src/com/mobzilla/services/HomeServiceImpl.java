@@ -21,4 +21,10 @@ public class HomeServiceImpl implements HomeService {
 		return repo.getAllProducts();
 	}
 
+	@Override
+	public ProductBean getProductDesc(int id) {
+		// TODO Auto-generated method stub
+		return repo.getProductDesc(id);
+	}
+
 }

@@ -16,16 +16,61 @@ public class ProductBean {
 	@Id
 	@Column(name="product_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private String productId;
+	private int productId;
 	
 	@Column(name="product_img_url")
 	private String productImgUrl;
+	
+	@Column(name="product_name")
+	private String productName;
+	
+	@Column(name="product_brand")
+	private String productBrand;
+	
+	@Column(name="product_desc")
+	private String productDesc;
+	
+	@Column(name="product_price", length = 10, precision = 2)
+	private double productPrice;
+	
 
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getProductBrand() {
+		return productBrand;
+	}
+
+	public void setProductBrand(String productBrand) {
+		this.productBrand = productBrand;
+	}
+
+	public String getProductDesc() {
+		return productDesc;
+	}
+
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
+	}
+
+	public double getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 

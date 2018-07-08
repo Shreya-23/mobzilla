@@ -8,4 +8,6 @@ public interface HomeRepository {
 	
 	public List<ProductBean> getAllProducts();
 
+	public ProductBean getProductDesc(int id);
+
 }

@@ -2,10 +2,10 @@
 
 div .prod{
 	
-		height:150px;
+		height:250px;
 		width:150px;
-		/* background:beige; */
-		border: 3px solid black;
+		background:#749488;
+		/* border: 3px solid black; */
 	}
 	
 		
@@ -21,7 +21,7 @@ ul li {
 	}	
 	
 		
-	img {
+	img .img-responsive {
 	
 		height:150px;
 		width:150px;
