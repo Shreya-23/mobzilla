@@ -29,7 +29,7 @@
 			</div>
 		</form>
 	</div>
-
+	<button onclick="window.location.href='LoginPage.shop'">Login</button>
 	</nav>
 
 
