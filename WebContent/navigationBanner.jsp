@@ -13,6 +13,7 @@
 <body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="banner">
+	<button onclick="window.location.href='${cartProducts.productId}/ProductDesc.shop'">CART</button>
 
 	<div class="col-sm-3 col-md-3 pull-right">
 		<form id="search-field-form" class="navbar-form" role="search"

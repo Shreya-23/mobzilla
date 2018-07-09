@@ -29,13 +29,24 @@
 				<li>
 					<div class="prod">
 
-						
-							<a href="/project1/id=${product.productId}/ProductDesc.shop"> <img class="img-responsive" src="${product.productImgUrl }">
-							</a>
-							<p><b>${product.productBrand}</b></p>
-							<p>${product.productName}</p>
-							<p>Price ${product.productPrice}</p>
-						
+
+						<a href="/project1/id=${product.productId}/ProductDesc.shop">
+							<img class="img-responsive" src="${product.productImgUrl }">
+						</a>
+						<p>
+							<b>${product.productBrand}</b>
+						</p>
+						<p>${product.productName}</p>
+						<p>Price ${product.productPrice}</p>
+
+						<form method="get" action="${product.productId}/addToCart.shop">
+							<input
+								type="submit" name="submit" value="ADD TO CART" />
+						</form>
+
+						<%-- <a href="/project1/${product.productId}/addToCart.shop">
+							<button>ADD TO CART</button> --%>
+						</a>
 					</div>
 				</li>
 			</c:forEach>
