@@ -1,12 +1,19 @@
 package com.mobzilla.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name="users_table")
@@ -14,7 +21,7 @@ import javax.persistence.Table;
 public class UserBean {
 	
 	
-	@Id
+	
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int userId;
@@ -25,6 +32,7 @@ public class UserBean {
 	@Column(name="userl_name")
 	private String userLastName;
 	
+	@Id
 	@Column(name="user_email")
 	private String userEmail;
 	
@@ -33,6 +41,10 @@ public class UserBean {
 	
 	@Column(name="user_contact")
 	private String userContact;
+	
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade={javax.persistence.CascadeType.ALL})
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	private List<AddressBean> address;
 
 	public int getUserId() {
 		return userId;
