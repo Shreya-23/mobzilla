@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="Login.shop" method="post">
+<form action="LoginUser.shop" method="post">
 <input name="email"><br>
 <input name="password"><br>
 <input type="submit" name="Login">
