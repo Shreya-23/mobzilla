@@ -1,0 +1,115 @@
+@charset "ISO-8859-1";
+
+.header {
+	background-color: #f1f1f1;
+	z-index: 1;
+	font-family: Raleway;
+	font-size: 36px;
+	padding: 20px;
+}
+
+.logoiconO {
+	width: 30px;
+	height: 27px;
+	margin-bottom: 9px;
+}
+
+.logoiconA {
+	width: 30px;
+	height: 28px;
+	margin-bottom: 12px;
+}
+
+#navbar {
+	z-index: 1;
+	font-family: Raleway;
+	overflow: hidden;
+	background-color: #000;
+}
+
+#navbar a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+#navbar a:hover {
+	background-color: #8c8c8c;
+	color: white;
+}
+
+#navbar a.active {
+	background-color: #404040;
+	color: white;
+}
+
+#login {
+	background: url(avatar.svg);
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	border: none;
+	width: 30px;
+	height: 30px;
+	margin: 13px 20px 0 0;
+	cursor: pointer;
+}
+
+#cart {
+	background-image: url(shopping-cart.svg);
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	border: none;
+	float: right;
+	width: 30px;
+	height: 30px;
+	margin: 13px 20px 0 0;
+	cursor: pointer;
+}
+
+.dropdown {
+	position: relative;
+	float: right;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	right: 0;
+	position: fixed;
+	background-color: #404040;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #8c8c8c;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+#tagline {
+	float: right;
+}
+
+#logo {
+	float: left;
+}

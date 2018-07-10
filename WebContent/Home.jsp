@@ -20,7 +20,7 @@
 <body>
 
 
-	<%@ include file="navigationBanner.jsp"%>
+	<%@ include file="NavigationBanner.jsp"%>
 
 
 	<div id="allproducts">
