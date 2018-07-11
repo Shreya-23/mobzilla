@@ -66,4 +66,7 @@ public class UserController {
 			return "Home";
 		}
 	}
+	
+	@RequestMapping(value="forgotPassword.shop")
+	public String forgotPassword() {return null;}
 }
