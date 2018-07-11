@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,12 +34,14 @@
 				<div class="form-group">
 					<label for="pwd">PASSWORD<span class="star">*</span></label> <input
 						type="password" class="form-control" placeholder="Enter password"
-						name="password">
+						name="password" required>
 				</div>
 				<br>
-				<button class="btnF" name="#">Forgot Password?</button>
+				<c:if test="${userNotFound!=null}">
+				<button class="btnF" name="parent.window.location.href='forgotPassword.shop'">Forgot Password?</button>
+				</c:if>
 				<br> <br>
-				<button  onclick="parent.window.location.href='home.shop'" class="btnL" name="Login">LOGIN</button>
+				<button  onclick="window.location.href='LoginUser.shop'" class="btnL" name="Login">LOGIN</button>
 				<br> <br> <br>
 			</form>
 			Don't have an account?
