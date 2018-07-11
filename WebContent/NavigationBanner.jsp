@@ -57,7 +57,7 @@
 		<div class="dropdown">
 			<button id="login" class="dropbtn"></button>
 			<div class="dropdown-content">
-				<a href="LoginPage.shop">Login</a> <a href="#">Register</a>
+				<a href="LoginPage.shop">Login</a> <a href="Register.jsp">Register</a>
 			</div>
 		</div>
 	</div>
