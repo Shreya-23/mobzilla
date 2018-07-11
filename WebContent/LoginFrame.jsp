@@ -15,6 +15,7 @@
 	<%@ include file="NavigationBanner.jsp"%>
 	<br>
 	<br>
+	
 	<div class="smartphone">
 		<div class="content">
 			<iframe src="Login.jsp"

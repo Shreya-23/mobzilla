@@ -36,7 +36,7 @@ public class UserController {
 	@RequestMapping(value="LoginPage.shop")
 	public String loginPage(Model model) {
 		
-		return "Login";
+		return "LoginFrame";
 	}
 	
 	@RequestMapping(value="RegisterUser.shop")

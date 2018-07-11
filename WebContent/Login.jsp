@@ -11,26 +11,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
-<<<<<<< HEAD
 <body class="bgphone">
 	
 	<!-- <form action="Login.shop" method="post">
-=======
-<body>
-
-<form action="LoginUser.shop" method="post">
->>>>>>> branch 'master' of https://github.com/harshitkashyap/mobzilla-online-shopping.git
 <input name="email"><br>
 <input name="password"><br>
 <input type="submit" name="Login">
 <br>
-<<<<<<< HEAD
 <a href="Register.jsp">New User?</a> -->
 	<!-- <div class="border"> -->
 		<div class="container">
 			<h2>Login</h2>
 			<hr class="custom">
-			<form action="Login.shop" method="post">
+			<form action="LoginUser.shop" method="post">
 				<div class="form-group">
 					<label for="email">EMAIL ADDRESS<span class="star">*</span></label>
 					<input type="email" class="form-control" placeholder="Enter email"
@@ -44,7 +37,7 @@
 				<br>
 				<button class="btnF" name="#">Forgot Password?</button>
 				<br> <br>
-				<button type="submit" class="btnL" name="Login">LOGIN</button>
+				<button  onclick="parent.window.location.href='home.shop'" class="btnL" name="Login">LOGIN</button>
 				<br> <br> <br>
 			</form>
 			Don't have an account?
@@ -52,12 +45,5 @@
 				us.</button>
 		</div>
 	<!-- </div> -->
-=======
-<a href="Register.jsp">New User?</a> 
-<a href="forgotPassword.shop">Forgot Password</a>
-
-</form>
-
->>>>>>> branch 'master' of https://github.com/harshitkashyap/mobzilla-online-shopping.git
 </body>
 </html>

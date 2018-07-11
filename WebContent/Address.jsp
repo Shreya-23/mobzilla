@@ -50,11 +50,11 @@ Pin Code:<input name="pin">
 				</div>
 				<div class="form-group">
 					<label for="city">CITY<span class="star">*</span></label> <input
-						type="email" class="form-control" name="city">
+						type="text" class="form-control" name="city">
 				</div>
 				<div class="form-group">
 					<label for="state">STATE<span class="star">*</span></label> <input
-						type="password" class="form-control" name="state">
+						type="text" class="form-control" name="state">
 				</div>
 				<div class="form-group">
 					<label for="pincode">PIN CODE<span class="star">*</span></label> <input
