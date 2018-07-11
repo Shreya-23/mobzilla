@@ -1,8 +1,5 @@
 package com.mobzilla.entity;
 
-import javax.persistence.Entity;
-
-@Entity
 public class LoginBean {
 	
 	private String email;
