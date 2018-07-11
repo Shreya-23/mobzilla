@@ -8,18 +8,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mobzilla.entity.AddressBean;
+import com.mobzilla.entity.ForgotBean;
+import com.mobzilla.entity.LoginBean;
 import com.mobzilla.entity.UserBean;
 import com.mobzilla.services.UserService;
 
 @Controller
-@SessionAttributes({"personalDetails"})
+@SessionAttributes({"personalDetails","userEmail"})
+
 public class UserController {
 	
 	@Autowired
 	private UserService service;
 	
+	@RequestMapping(value="LoginUser.shop")
+	public String loginUser(LoginBean login, Model model) {
+		
+		if(service.validate(login)) {
+			return "Home";
+		}
+		else {
+			model.addAttribute("userNotFound","true");
+			return "Login";
+		}
+	}
+	
 	@RequestMapping(value="LoginPage.shop")
-	public String loginUser(Model model) {
+	public String loginPage(Model model) {
 		
 		return "Login";
 	}
@@ -47,6 +62,41 @@ public class UserController {
 		address.setUser(user.getUserEmail());
 		Boolean isRegistered=service.registerUser(user,address);
 		if(isRegistered) {
+			return "Login";
+		}
+		else {
+			return "Home";
+		}
+	}
+	
+	@RequestMapping(value="forgotPassword.shop")
+	public String forgetPassPage() {
+		return "ForgotPassword";
+	}
+	
+	@RequestMapping(value="newPass.shop")
+	public String forgotPassword(UserBean user,Model model) {
+		
+		// fBean=new ForgotBean();
+		
+		String email=service.matchDetails(user);
+		if(email!=null)
+		{
+			ForgotBean bean=new ForgotBean();
+			bean.setEmail(email);
+			model.addAttribute("userEmail", bean);
+			return "ReEnterPass";
+		}
+		else {
+			return "ForgotPassword";
+		}
+	}
+	
+	@RequestMapping(value="ChangePass.shop")
+	public String changePassword(@ModelAttribute("userEmail") ForgotBean bean) {
+		
+		if(service.changePassword(bean))
+		{
 			return "Login";
 		}
 		else {

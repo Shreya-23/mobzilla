@@ -11,13 +11,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
+<<<<<<< HEAD
 <body class="bgphone">
 	
 	<!-- <form action="Login.shop" method="post">
+=======
+<body>
+
+<form action="LoginUser.shop" method="post">
+>>>>>>> branch 'master' of https://github.com/harshitkashyap/mobzilla-online-shopping.git
 <input name="email"><br>
 <input name="password"><br>
 <input type="submit" name="Login">
 <br>
+<<<<<<< HEAD
 <a href="Register.jsp">New User?</a> -->
 	<!-- <div class="border"> -->
 		<div class="container">
@@ -45,5 +52,12 @@
 				us.</button>
 		</div>
 	<!-- </div> -->
+=======
+<a href="Register.jsp">New User?</a> 
+<a href="forgotPassword.shop">Forgot Password</a>
+
+</form>
+
+>>>>>>> branch 'master' of https://github.com/harshitkashyap/mobzilla-online-shopping.git
 </body>
 </html>
