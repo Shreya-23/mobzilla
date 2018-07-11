@@ -59,7 +59,7 @@
 }
 
 #cart {
-	background-image: url(shopping-cart.svg);
+	background: url(shopping-cart.svg);
 	background-repeat: no-repeat;
 	background-size: 25px 25px;
 	border: none;

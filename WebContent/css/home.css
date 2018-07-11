@@ -1,11 +1,11 @@
 @CHARSET "ISO-8859-1";
 
-div .prod{
+/* div .prod{
 	
 		height:250px;
 		width:150px;
 		background:#749488;
-		/* border: 3px solid black; */
+		border: 3px solid black;
 	}
 	
 		
@@ -25,11 +25,130 @@ ul li {
 	
 		height:150px;
 		width:150px;
-		/* background:beige; */
+		background:beige;
 		border: 3px solid black;
 	}
 	
 	#banner, #allProducts {
 		position: relative;
 	}
+	 */
+
+/* Login Form */
+
+/* 
+body {
+	background-color: #bfbfbf;
+	font-family: 'Raleway';
+	color: #fff;
+	height: 100%;
+}
+ */
+ 
+/*  body.bgphone{
+ 	background-image: url('bgphone.svg');
+ } */
+ 
+ .smartphone {
+  position: relative;
+  width: 390px;
+  height: 600px;
+  margin: auto;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
+}
+
+/* The horizontal line on the top of the device */
+.smartphone:before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
+
+/* The circle on the bottom of the device */
+.smartphone:after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+/* The screen (or content) of the device */
+.smartphone .content{
+  width: 350px;
+  height: 480px;
+  background: white;
+}
+.border {
+	background-color:white;
+	border: 5px solid #aa8f6d;
+}
+
+.container {
+	font-family: 'Raleway';
+	width: auto;
+	height: 400px;
+	background-color: #FFF;
+}
+
+.btnL, .btnN {
+	width: 100%;
+	border: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 0px;
+	color: white;
+	background-color: #000;
+}
+.btnN{
+	margin-top: 20px;
+}
+.btnJ, .btnF {
+	margin: auto;
+	font-weight: bold;
+	border: none;
+	background-color: #FFF;
+}
+
+.btnJ:hover, .btnF:hover {
+	border-bottom: 1px solid #000;
+	background-color: #FFF;
+}
+
+h2 {
+	text-align: center;
 	
+}
+hr.custom { 
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
+
+input.form-control {
+	margin: auto;
+	border: #d9d9d9 1px solid;
+	border-radius: 0px;
+}
+
+.star {
+	color: red;
+}
