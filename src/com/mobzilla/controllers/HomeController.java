@@ -22,7 +22,10 @@ public class HomeController {
 	@RequestMapping(value="home.shop")
 	public String populateProducts(Model model){
 		System.out.println("home page started");
+		
+		model.addAttribute("BrandList",service.getAllBrands());
 		model.addAttribute("ProductList",service.getAllProducts());
+		
 		return "Home";
 		
 	}

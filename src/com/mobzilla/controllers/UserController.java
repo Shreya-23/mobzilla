@@ -25,9 +25,11 @@ public class UserController {
 	public String loginUser(LoginBean login, Model model) {
 		
 		if(service.validate(login)) {
+			System.out.println("user found------------");
 			return "Home";
 		}
 		else {
+			System.out.println("user not found------------");
 			model.addAttribute("userNotFound","true");
 			return "Login";
 		}
@@ -36,7 +38,7 @@ public class UserController {
 	@RequestMapping(value="LoginPage.shop")
 	public String loginPage(Model model) {
 		
-		return "LoginFrame";
+		return "Login";
 	}
 	
 	@RequestMapping(value="RegisterUser.shop")

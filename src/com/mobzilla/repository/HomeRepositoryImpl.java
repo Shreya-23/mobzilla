@@ -64,4 +64,18 @@ public class HomeRepositoryImpl implements HomeRepository {
 		
 	}
 
+	@Override
+	public List<BrandBean> getAllBrands() {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		Transaction txn=session.beginTransaction();
+		
+		List<BrandBean> brands = session.createQuery("FROM BrandBean").list();
+		if(brands!=null)
+		System.out.println(brands.size());
+		
+		txn.commit();
+		return brands;
+	}
+
 }

@@ -34,4 +34,10 @@ public class HomeServiceImpl implements HomeService {
 		return repo.getProductByBrand(brand);
 	}
 
+	@Override
+	public List<BrandBean> getAllBrands() {
+		// TODO Auto-generated method stub
+		return repo.getAllBrands();
+	}
+
 }

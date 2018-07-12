@@ -54,6 +54,7 @@ public class UserRepositoryImpl implements UserRepository{
 		//String userName=query.toString();
 		List list=query.list();
 		txn.commit();
+		System.out.println(login.getEmail()+" "+login.getPassword());
 		/*if(userName!=null)
 			return true;
 		else

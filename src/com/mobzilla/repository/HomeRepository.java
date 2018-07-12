@@ -13,4 +13,6 @@ public interface HomeRepository {
 
 	public List<ProductBean> getProductByBrand(BrandBean brand);
 
+	public List<BrandBean> getAllBrands();
+
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,9 +9,11 @@
 </head>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/navigationBanner.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway" rel="stylesheet">
-<script type="text/javascript" src="js/navigationBanner.js"></script> 
+<link href="css/home.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
+	rel="stylesheet">
+<script type="text/javascript" src="js/navigationBanner.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 
@@ -48,9 +51,20 @@
 	<br>
 
 	<div id="navbar">
-		<a class="active" href="javascript:void(0)">Home</a> <a
-			href="javascript:void(0)">Explore Products</a> <a href="#about">About
-			Us</a>
+		<a class="active" href="javascript:void(0)">Home</a>
+		<!-- --------------------------------------------------------explore-------------------- -->
+		
+		<div class="dropdown">
+			<button class="dropbtn">Explore Products</button>
+			<div class="dropdown-content">
+			<c:forEach items="${BrandList}" var="brands">
+				<a href="">${brands.brandName}</a>
+			</c:forEach>
+			</div>
+		</div>
+		
+		<!-- --------------------------------------------------------explore--------------------- -->
+		<a href="#about">About Us</a>
 
 		<button id="cart"></button>
 
