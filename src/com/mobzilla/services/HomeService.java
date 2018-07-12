@@ -9,7 +9,7 @@ public interface HomeService {
 	
 	public List<ProductBean> getAllProducts();
 	
-	public List<ProductBean> getProductByBrand(BrandBean brand);
+	public List<ProductBean> getProductByBrand(int brand);
 	
 	public ProductBean getProductDesc(int id);
 	

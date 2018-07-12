@@ -11,7 +11,7 @@ public interface HomeRepository {
 
 	public ProductBean getProductDesc(int id);
 
-	public List<ProductBean> getProductByBrand(BrandBean brand);
+	public List<ProductBean> getProductByBrand(int brand);
 
 	public List<BrandBean> getAllBrands();
 

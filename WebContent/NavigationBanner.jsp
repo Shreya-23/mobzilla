@@ -58,7 +58,7 @@
 			<button class="dropbtn">Explore Products</button>
 			<div class="dropdown-content">
 			<c:forEach items="${BrandList}" var="brands">
-				<a href="">${brands.brandName}</a>
+				<a href="${brands.brandId}/home.shop">${brands.brandName}</a>
 			</c:forEach>
 			</div>
 		</div>

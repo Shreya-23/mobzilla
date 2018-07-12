@@ -48,7 +48,7 @@ public class HomeRepositoryImpl implements HomeRepository {
 	}
 
 	@Override
-	public List<ProductBean> getProductByBrand(BrandBean brand) {
+	public List<ProductBean> getProductByBrand(int brand) {
 		// TODO Auto-generated method stub
 		
 		String hql="FROM ProductBean P WHERE P.productBrand =:product_brand";
@@ -56,7 +56,7 @@ public class HomeRepositoryImpl implements HomeRepository {
 		Session session=sessionFactory.getCurrentSession();
 		Transaction txn=session.beginTransaction();
 		Query query=session.createQuery(hql);
-		query.setParameter("product_brand", brand.getBrandId());
+		query.setInteger("product_brand", brand);
 		List<ProductBean> products=query.list();
 		txn.commit();
 		

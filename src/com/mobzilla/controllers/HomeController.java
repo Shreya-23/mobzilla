@@ -20,10 +20,15 @@ public class HomeController {
 	private HomeService service;
 	
 	@RequestMapping(value="home.shop")
-	public String populateProducts(Model model){
+	public String populateProducts(/*@PathVariable("brand") int brand,*/Model model){
 		System.out.println("home page started");
 		
 		model.addAttribute("BrandList",service.getAllBrands());
+		/*model.addAttribute("index",brand);*/
+		
+	/*	if(brand>0)
+		model.addAttribute("ProductList",service.getProductByBrand(brand));
+		else*/
 		model.addAttribute("ProductList",service.getAllProducts());
 		
 		return "Home";

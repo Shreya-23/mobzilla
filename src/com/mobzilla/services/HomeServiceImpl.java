@@ -29,7 +29,7 @@ public class HomeServiceImpl implements HomeService {
 	}
 
 	@Override
-	public List<ProductBean> getProductByBrand(BrandBean brand) {
+	public List<ProductBean> getProductByBrand(int brand) {
 		// TODO Auto-generated method stub
 		return repo.getProductByBrand(brand);
 	}
