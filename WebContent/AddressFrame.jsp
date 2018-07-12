@@ -13,7 +13,8 @@
 </head>
 <body>
 	<%@ include file="NavigationBanner.jsp"%>
-	<br><br>
+	<br>
+	<br>
 	<div class="smartphone">
 		<div class="content">
 			<iframe src="Address.jsp"

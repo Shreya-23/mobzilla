@@ -16,7 +16,7 @@
 </head>
 <body class="bgphone">
 
-	
+
 	<%-- <spring:form action="RegisterUser.shop" modelAttribute="personalDetails" method="post">
  <b> Enter Personal Details</b>
 
@@ -32,39 +32,39 @@ Enter Contact Number:<input name="userContact">
 </spring:form> --%>
 
 	<!-- <div class="border"> -->
-		<div class="container">
-			<h2>Register</h2>
-			<hr class="custom">
-			<spring:form action="RegisterUser.shop"
-				modelAttribute="personalDetails" method="post">
-				<div class="form-group">
-					<label for="fname">FIRST NAME<span class="star">*</span></label> <input
-						type="text" class="form-control" placeholder="Enter Name"
-						name="userFirstName">
-				</div>
-				<div class="form-group">
-					<label for="lname">LAST NAME<span class="star">*</span></label> <input
-						type="text" class="form-control" placeholder="Enter Name"
-						name="userlastName">
-				</div>
-				<div class="form-group">
-					<label for="email">EMAIL<span class="star">*</span></label> <input
-						type="email" class="form-control" placeholder="Enter Email"
-						name="userEmail">
-				</div>
-				<div class="form-group">
-					<label for="pwd">PASSWORD<span class="star">*</span></label> <input
-						type="password" class="form-control" placeholder="Enter password"
-						name="userPass">
-				</div>
-				<div class="form-group">
-					<label for="contact">PHONE NUMBER<span class="star">*</span></label>
-					<input type="text" class="form-control"
-						placeholder="Enter password" name="userContact">
-				</div>
-				<button type="submit" class="btnN" name="next">NEXT</button>
-			</spring:form>
-		</div>
+	<div class="container">
+		<h2>Register</h2>
+		<hr class="custom">
+		<spring:form action="RegisterUser.shop"
+			modelAttribute="personalDetails" method="post">
+			<div class="form-group">
+				<label for="fname">FIRST NAME<span class="star">*</span></label> <input
+					type="text" class="form-control" placeholder="Enter Name"
+					name="userFirstName">
+			</div>
+			<div class="form-group">
+				<label for="lname">LAST NAME<span class="star">*</span></label> <input
+					type="text" class="form-control" placeholder="Enter Name"
+					name="userlastName">
+			</div>
+			<div class="form-group">
+				<label for="email">EMAIL<span class="star">*</span></label> <input
+					type="email" class="form-control" placeholder="Enter Email"
+					name="userEmail">
+			</div>
+			<div class="form-group">
+				<label for="pwd">PASSWORD<span class="star">*</span></label> <input
+					type="password" class="form-control" placeholder="Enter password"
+					name="userPass">
+			</div>
+			<div class="form-group">
+				<label for="contact">PHONE NUMBER<span class="star">*</span></label>
+				<input type="text" class="form-control" placeholder="Enter password"
+					name="userContact">
+			</div>
+			<button type="submit" class="btnN" name="next">NEXT</button>
+		</spring:form>
+	</div>
 	<!-- </div> -->
 </body>
 </html>

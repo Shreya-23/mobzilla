@@ -25,13 +25,15 @@ public class ProductBean {
 	private String productName;
 	
 	@Column(name="product_brand")
-	private String productBrand;
+	private int productBrand;
 	
 	@Column(name="product_desc")
 	private String productDesc;
 	
 	@Column(name="product_price", length = 10, precision = 2)
 	private double productPrice;
+	
+	
 	
 
 	public int getProductId() {
@@ -46,11 +48,12 @@ public class ProductBean {
 		this.productName = productName;
 	}
 
-	public String getProductBrand() {
+
+	public int getProductBrand() {
 		return productBrand;
 	}
 
-	public void setProductBrand(String productBrand) {
+	public void setProductBrand(int productBrand) {
 		this.productBrand = productBrand;
 	}
 

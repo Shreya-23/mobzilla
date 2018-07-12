@@ -13,10 +13,11 @@
 </head>
 <body>
 	<%@ include file="NavigationBanner.jsp"%>
-	<br><br>
+	<br>
+	<br>
 	<div class="smartphone">
 		<div class="content">
-		
+
 			<iframe src="Register.jsp"
 				style="width: 100%; border: none; height: 100%" />
 		</div>

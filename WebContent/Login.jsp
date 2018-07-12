@@ -38,7 +38,7 @@
 				</div>
 				<br>
 				<c:if test="${userNotFound!=null}">
-				<button class="btnF" name="parent.window.location.href='forgotPassword.shop'">Forgot Password?</button>
+				<button class="btnF" onclick="window.location.href='forgotPassword.shop'">Forgot Password?</button>
 				</c:if>
 				<br> <br>
 				<button  onclick="window.location.href='LoginUser.shop'" class="btnL" name="Login">LOGIN</button>

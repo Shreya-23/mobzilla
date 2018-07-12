@@ -33,36 +33,36 @@ Pin Code:<input name="pin">
 
 </spring:form>
  --%>
-<!-- 
+	<!-- 
 	<div class="border"> -->
-		<div class="container">
-			<h2>Register</h2>
-			<hr class="custom">
-			<spring:form action="AddAddress.shop" modelAttribute="addressDetails"
-				method="get">
-				<div class="form-group">
-					<label for="add1">ADDRESS LINE 1<span class="star">*</span></label>
-					<input type="text" class="form-control" name="addressLine1">
-				</div>
-				<div class="form-group">
-					<label for="add2">ADDRESS LINE 2<span class="star">*</span></label>
-					<input type="text" class="form-control" name="addressLine2">
-				</div>
-				<div class="form-group">
-					<label for="city">CITY<span class="star">*</span></label> <input
-						type="text" class="form-control" name="city">
-				</div>
-				<div class="form-group">
-					<label for="state">STATE<span class="star">*</span></label> <input
-						type="text" class="form-control" name="state">
-				</div>
-				<div class="form-group">
-					<label for="pincode">PIN CODE<span class="star">*</span></label> <input
-						type="text" class="form-control" name="pin">
-				</div>
-				<button type="submit" class="btnN" name="next">SUBMIT</button>
-			</spring:form>
-		</div>
+	<div class="container">
+		<h2>Register</h2>
+		<hr class="custom">
+		<spring:form action="AddAddress.shop" modelAttribute="addressDetails"
+			method="get">
+			<div class="form-group">
+				<label for="add1">ADDRESS LINE 1<span class="star">*</span></label>
+				<input type="text" class="form-control" name="addressLine1">
+			</div>
+			<div class="form-group">
+				<label for="add2">ADDRESS LINE 2<span class="star">*</span></label>
+				<input type="text" class="form-control" name="addressLine2">
+			</div>
+			<div class="form-group">
+				<label for="city">CITY<span class="star">*</span></label> <input
+					type="text" class="form-control" name="city">
+			</div>
+			<div class="form-group">
+				<label for="state">STATE<span class="star">*</span></label> <input
+					type="text" class="form-control" name="state">
+			</div>
+			<div class="form-group">
+				<label for="pincode">PIN CODE<span class="star">*</span></label> <input
+					type="text" class="form-control" name="pin">
+			</div>
+			<button type="submit" class="btnN" name="next">SUBMIT</button>
+		</spring:form>
+	</div>
 	<!--</div>  -->
 
 

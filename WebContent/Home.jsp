@@ -40,8 +40,7 @@
 						<p>Price ${product.productPrice}</p>
 
 						<form method="get" action="${product.productId}/addToCart.shop">
-							<input
-								type="submit" name="submit" value="ADD TO CART" />
+							<input type="submit" name="submit" value="ADD TO CART" />
 						</form>
 
 						<%-- <a href="/project1/${product.productId}/addToCart.shop">

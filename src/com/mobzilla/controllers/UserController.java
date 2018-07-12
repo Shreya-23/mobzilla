@@ -88,19 +88,24 @@ public class UserController {
 			return "ReEnterPass";
 		}
 		else {
+			model.addAttribute("isPhoneCorrect","false");
 			return "ForgotPassword";
 		}
 	}
 	
 	@RequestMapping(value="ChangePass.shop")
-	public String changePassword(@ModelAttribute("userEmail") ForgotBean bean) {
+	public String changePassword(@ModelAttribute("userEmail") ForgotBean bean,Model model) {
 		
 		if(service.changePassword(bean))
 		{
+			model.addAttribute("passChaged","true");
 			return "Login";
 		}
 		else {
-			return "Home";
+			
+			model.addAttribute("userEmail", bean);
+			model.addAttribute("doPassMatch","false");
+			return "ReEnterPass";
 		}
 	}
 }

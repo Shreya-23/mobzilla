@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
 			
 			return repo.changePassword(bean);
 		}
+		else
 		return false;
 	}
 

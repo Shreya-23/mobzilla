@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.mobzilla.entity.BrandBean;
 import com.mobzilla.entity.ProductBean;
 
 @Repository
@@ -44,6 +45,23 @@ public class HomeRepositoryImpl implements HomeRepository {
 		txn.commit();
 		
 		return product;
+	}
+
+	@Override
+	public List<ProductBean> getProductByBrand(BrandBean brand) {
+		// TODO Auto-generated method stub
+		
+		String hql="FROM ProductBean P WHERE P.productBrand =:product_brand";
+		
+		Session session=sessionFactory.getCurrentSession();
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		query.setParameter("product_brand", brand.getBrandId());
+		List<ProductBean> products=query.list();
+		txn.commit();
+		
+		return products;
+		
 	}
 
 }
