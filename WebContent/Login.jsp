@@ -22,7 +22,13 @@
 <br>
 <a href="Register.jsp">New User?</a> -->
 	<!-- <div class="border"> -->
-	<div class="container">
+	
+	<div class="smartphone" style="background-color:#FFF">
+		<div class="content" style="overflow:scroll; height:480px;">
+			
+				<button class="back" onclick="history.go(-1)"></button>
+	
+	
 		<h2>Login</h2>
 		<hr class="custom">
 		<form action="LoginUser.shop" method="post">
@@ -54,6 +60,6 @@
 		<button class="btnJ" onclick="window.location.href='Register.jsp'">Join
 			us.</button>
 	</div>
-	<!-- </div> -->
+		
 </body>
 </html>

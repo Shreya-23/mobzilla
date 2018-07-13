@@ -17,6 +17,10 @@
 <b><c:out value="${ProductDesc.productName}"/></b><br>
 <c:out value="${ProductDesc.productBrand}"/><br>
 <c:out value="${ProductDesc.productPrice}"/>
+<br>
+Product Description:
+${ProductDesc.productSpecs}
+
 
 
 </body>

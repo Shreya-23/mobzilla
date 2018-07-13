@@ -32,7 +32,9 @@ Enter Contact Number:<input name="userContact">
 </spring:form> --%>
 
 	<!-- <div class="border"> -->
-	<div class="container">
+	<div class="smartphone" style="background-color:#FFF">
+		<div class="content" style="overflow:scroll; height:480px;">
+		<button class="back" onclick="history.go(-1)"></button>
 		<h2>Register</h2>
 		<hr class="custom">
 		<spring:form action="RegisterUser.shop"
@@ -65,6 +67,6 @@ Enter Contact Number:<input name="userContact">
 			<button type="submit" class="btnN" name="next">NEXT</button>
 		</spring:form>
 	</div>
-	<!-- </div> -->
+	</div>
 </body>
 </html>

@@ -11,6 +11,7 @@ import com.mobzilla.entity.AddressBean;
 import com.mobzilla.entity.ForgotBean;
 import com.mobzilla.entity.LoginBean;
 import com.mobzilla.entity.UserBean;
+import com.mobzilla.services.HomeService;
 import com.mobzilla.services.UserService;
 
 @Controller
@@ -21,11 +22,16 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
+	@Autowired
+	private HomeService homeService;
+	
 	@RequestMapping(value="LoginUser.shop")
 	public String loginUser(LoginBean login, Model model) {
 		
 		if(service.validate(login)) {
 			System.out.println("user found------------");
+			model.addAttribute("BrandList",homeService.getAllBrands());
+			model.addAttribute("ProductList",homeService.getAllProducts());
 			return "Home";
 		}
 		else {
@@ -57,7 +63,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="AddAddress.shop")
-	public String addAddress(@ModelAttribute("personalDetails") UserBean user,AddressBean address) {
+	public String addAddress(@ModelAttribute("personalDetails") UserBean user,AddressBean address,Model model) {
 		
 		System.out.println(user.getUserEmail());
 		System.out.println(address.getAddressLine1());
@@ -67,6 +73,9 @@ public class UserController {
 			return "Login";
 		}
 		else {
+			
+			model.addAttribute("BrandList",homeService.getAllBrands());
+			model.addAttribute("ProductList",homeService.getAllProducts());
 			return "Home";
 		}
 	}

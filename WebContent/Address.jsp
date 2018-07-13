@@ -35,8 +35,10 @@ Pin Code:<input name="pin">
  --%>
 	<!-- 
 	<div class="border"> -->
-	<div class="container">
-		<h2>Register</h2>
+	<%@ include file="NavigationBanner.jsp"%>
+	<div class="smartphone" style="background-color: #FFF">
+		<div class="content" style="overflow: scroll; height: 480px;">
+			<button class="back" onclick="history.go(-1)"></button>
 		<hr class="custom">
 		<spring:form action="AddAddress.shop" modelAttribute="addressDetails"
 			method="get">
@@ -63,7 +65,7 @@ Pin Code:<input name="pin">
 			<button type="submit" class="btnN" name="next">SUBMIT</button>
 		</spring:form>
 	</div>
-	<!--</div>  -->
+	</div> 
 
 
 </body>

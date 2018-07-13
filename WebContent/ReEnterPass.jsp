@@ -29,8 +29,9 @@ re-enter password:
 <input type="submit">
 </spring:form> --%>
 
-	<div class="container">
-		<!-- <button class="back" onclick="goBack()"></button> -->
+<div class="smartphone" style="background-color: #FFF">
+		<div class="content" style="overflow: scroll; height: 480px;">
+			<button class="back" onclick="history.go(-1)"></button>
 		<h2>Enter New Password</h2>
 		<hr class="custom">
 		<spring:form action="ChangePass.shop" method="post"
@@ -53,6 +54,7 @@ re-enter password:
 			<br>
 			<br>
 		</spring:form>
+	</div>
 	</div>
 
 </body>

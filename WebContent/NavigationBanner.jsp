@@ -15,6 +15,8 @@
 	rel="stylesheet">
 <script type="text/javascript" src="js/navigationBanner.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-3.1.0.min.js"></script>
+
 
 
 <body>
@@ -51,18 +53,23 @@
 	<br>
 
 	<div id="navbar">
-		<a class="active" href="javascript:void(0)">Home</a>
+		<a class="active" href="allProducts.shop">Home</a>
 		<!-- --------------------------------------------------------explore-------------------- -->
 		
 		<div class="dropdown">
 			<button class="dropbtn">Explore Products</button>
 			<div class="dropdown-content">
 			<c:forEach items="${BrandList}" var="brands">
-				<a href="${brands.brandId}/home.shop">${brands.brandName}</a>
+			
+			
+				<form action="${brands.brandId}/home.shop" method="post">
+				<button type="submit">${brands.brandName}</button>
+				</form>
+				
 			</c:forEach>
 			</div>
 		</div>
-		
+		<%-- <a class="active" href="0/home.shop">${userEmail.email}</a> --%>
 		<!-- --------------------------------------------------------explore--------------------- -->
 		<a href="#about">About Us</a>
 

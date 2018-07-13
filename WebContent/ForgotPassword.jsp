@@ -25,8 +25,10 @@ phone number:<input name="userContact">
 <input type="submit"> 
 </spring:form>--%>
 
-	<div class="container">
-		<!-- <button class="back" onclick="goBack()"></button> -->
+	<div class="smartphone" style="background-color:#FFF">
+		<div class="content" style="overflow:scroll; height:480px;">
+
+		<button class="back" onclick="history.go(-1)"></button>
 		<h2>Change Password</h2>
 		<hr class="custom">
 		<spring:form action="newPass.shop" method="post">
@@ -48,6 +50,8 @@ phone number:<input name="userContact">
 			<br>
 			<br>
 		</spring:form>
+	</div>
+	
 	</div>
 </body>
 </html>

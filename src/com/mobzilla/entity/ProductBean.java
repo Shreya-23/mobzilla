@@ -33,8 +33,17 @@ public class ProductBean {
 	@Column(name="product_price", length = 10, precision = 2)
 	private double productPrice;
 	
+	@Column(name="product_specs")
+	private String productSpecs;
 	
-	
+
+	public String getProductSpecs() {
+		return productSpecs;
+	}
+
+	public void setProductSpecs(String productSpecs) {
+		this.productSpecs = productSpecs;
+	}
 
 	public int getProductId() {
 		return productId;

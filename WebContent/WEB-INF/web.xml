@@ -61,6 +61,6 @@
 	
 	
 	<welcome-file-list>
-		<welcome-file>/home.shop</welcome-file>
+		<welcome-file>/Index.shop</welcome-file>
 	</welcome-file-list>
 </web-app>
