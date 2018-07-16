@@ -15,7 +15,7 @@ import com.mobzilla.entity.ForgotBean;
 import com.mobzilla.services.HomeService;
 
 @Controller
-@SessionAttributes("cartProducts")
+@SessionAttributes({"cartProducts","userLogin"})
 public class HomeController {
 	
 	@Autowired
@@ -24,12 +24,13 @@ public class HomeController {
 	@RequestMapping(value="Index.shop")
 	public String startIndex() {
 		
+		
 		return "Index";
 	}
 	
 	
-	@RequestMapping(value="/{brand}/home.shop", method=RequestMethod.POST)
-	public String populateProducts(@PathVariable("brand") int brand,Model model,@ModelAttribute("userEmail") ForgotBean bean){
+	@RequestMapping(value="{brand}home.shop")
+	public String populateProducts(@PathVariable("brand") int brand,Model model,@ModelAttribute("userEmail") ForgotBean bean,@ModelAttribute("userLogin") String userLogin){
 		System.out.println("home page started");
 		
 		model.addAttribute("BrandList",service.getAllBrands());
@@ -46,7 +47,7 @@ public class HomeController {
 		return "Home";
 	}
 	
-	@RequestMapping(value="/id={id}/ProductDesc.shop",method=RequestMethod.GET)
+	@RequestMapping(value="{id}ProductDesc.shop",method=RequestMethod.GET)
 	public String getProductDesc(@PathVariable("id") int id, Model model){
 		
 		model.addAttribute("ProductDesc",service.getProductDesc(id));

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
+	
+	<%@ taglib prefix="spring"
+	uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -62,9 +66,12 @@
 			<c:forEach items="${BrandList}" var="brands">
 			
 			
-				<form action="${brands.brandId}/home.shop" method="post">
+				<a class="active" href="${brands.brandId}home.shop">${brands.brandName}</a>
+			
+			
+				<%-- <spring:form action="${brands.brandId}home.shop" method="post">
 				<button type="submit">${brands.brandName}</button>
-				</form>
+				</spring:form> --%>
 				
 			</c:forEach>
 			</div>
@@ -78,7 +85,13 @@
 		<div class="dropdown">
 			<button id="login" class="dropbtn"></button>
 			<div class="dropdown-content">
-				<a href="LoginPage.shop">Login</a> <a href="RegisterFrame.jsp">Register</a>
+				<c:if test="${userLogin==null}">
+				<a href="LoginPage.shop">Login</a>
+				</c:if>
+				<c:if test="${userLogin!=null}">
+				<a href="LogoutUser.shop">Logout</a>
+				</c:if>
+				 <a href="RegisterFrame.jsp">Register</a>
 			</div>
 		</div>
 	</div>

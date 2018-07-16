@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionAttributeStore;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
 
 import com.mobzilla.entity.AddressBean;
 import com.mobzilla.entity.ForgotBean;
@@ -15,7 +18,7 @@ import com.mobzilla.services.HomeService;
 import com.mobzilla.services.UserService;
 
 @Controller
-@SessionAttributes({"personalDetails","userEmail"})
+@SessionAttributes({"personalDetails","userEmail","userLogin"})
 
 public class UserController {
 	
@@ -32,6 +35,7 @@ public class UserController {
 			System.out.println("user found------------");
 			model.addAttribute("BrandList",homeService.getAllBrands());
 			model.addAttribute("ProductList",homeService.getAllProducts());
+			model.addAttribute("userLogin","true");
 			return "Home";
 		}
 		else {
@@ -118,5 +122,13 @@ public class UserController {
 			model.addAttribute("doPassMatch","false");
 			return "ReEnterPass";
 		}
+	}
+	
+	@RequestMapping("LogoutUser.shop")
+	public String logoutUser(Model model,WebRequest request, SessionStatus status){
+		
+		 status.setComplete();
+		 model.addAttribute("userLogin",null);
+		return "Index";
 	}
 }
