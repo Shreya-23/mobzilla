@@ -35,7 +35,7 @@ public class UserController {
 			System.out.println("user found------------");
 			model.addAttribute("BrandList",homeService.getAllBrands());
 			model.addAttribute("ProductList",homeService.getAllProducts());
-			model.addAttribute("userLogin","true");
+			model.addAttribute("userLogin",login);
 			return "Home";
 		}
 		else {
