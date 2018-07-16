@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,6 +49,28 @@ public class CartController {
 		}
 		else 
 			return "Login";
+	}
+	
+	@RequestMapping(value="showCart.shop")
+	public String showCart(Model model,HttpSession session) {
+		
+		LoginBean login=(LoginBean)session.getAttribute("userLogin");
+		if(login!=null) {
+		model.addAttribute("cartProducts",cartService.getCartProducts(login));
+		return "Cart";
+		}
+		else
+		return "Login";
+	}
+	
+	@RequestMapping(value="order.shop")
+	public String orderCartProducts(Model model,HttpSession session) {
+		
+		LoginBean login=(LoginBean)session.getAttribute("userLogin");
+		
+		Boolean success=cartService.orderProducts(login);
+		
+		return "Home";
 	}
 
 }

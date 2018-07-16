@@ -74,7 +74,7 @@
 						<p>${product.productName}</p>
 						<p>${product.productPrice}</p>
 						
-						<a href="${product.productId}addToCart.shop"><button id="blcart"></button></a>
+						<a href="${product.productId}addToCart.shop"><button >ADD</button></a>
 					</div><a href="${product.productId}ProductDesc.shop"><img src="${product.productImgUrl }" class="phimg" alt="oppoF7" style="width:150px; height:306px;"></a>
 				</div>
 			

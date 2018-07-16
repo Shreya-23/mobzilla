@@ -79,9 +79,9 @@
 		<%-- <a class="active" href="0/home.shop">${userEmail.email}</a> --%>
 		<!-- --------------------------------------------------------explore--------------------- -->
 		<a href="#about">About Us</a>
-
+		<a href="showCart.shop">
 		<button id="cart"></button>
-
+		</a>
 		<div class="dropdown">
 			<button id="login" class="dropbtn"></button>
 			<div class="dropdown-content">

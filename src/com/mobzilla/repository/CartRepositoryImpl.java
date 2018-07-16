@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.mobzilla.entity.AddProductBean;
 import com.mobzilla.entity.CartBean;
+import com.mobzilla.entity.LoginBean;
+import com.mobzilla.entity.OrdersBean;
 import com.mobzilla.entity.ProductBean;
 
 @Repository
@@ -67,6 +69,54 @@ public class CartRepositoryImpl implements CartRepository {
 		query.setParameter("product", cart.getProductId());
 		query.executeUpdate();
 		txn.commit();
+		return true;
+	}
+
+	@Override
+	public List<CartBean> getCartProducts(LoginBean login) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		Transaction txn=session.beginTransaction();
+		
+		Query query=session.createQuery("FROM CartBean WHERE userId= :user");
+		
+		query.setParameter("user", login.getEmail());
+		
+		List<CartBean> list=query.list();
+		txn.commit();
+
+		
+		
+		return list;
+	}
+
+	@Override
+	public boolean orderProducts(LoginBean login,List<CartBean> cartList) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		Transaction txn=session.beginTransaction();
+		OrdersBean order=new OrdersBean();
+		CartBean cart=null;
+		for(int i=0;i<cartList.size();i++) {
+			cart=cartList.get(i);
+			order.setProductId(cart.getProductId());
+			order.setUserId(cart.getUserId());
+			order.setProductPrice(cart.getTotalPrice()*cart.getQuantity());
+			
+			session.save(order);
+		}
+		
+		
+		/*Query query=session.createQuery("DELETE CartBean WHERE userId= :user");
+		
+		query.setParameter("user", login.getEmail());
+		
+		query.executeUpdate();*/
+		txn.commit();
+		
+		
+		
+		
 		return true;
 	}
 	
