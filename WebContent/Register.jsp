@@ -41,13 +41,13 @@ Enter Contact Number:<input name="userContact">
 			modelAttribute="personalDetails" method="post">
 			<div class="form-group">
 				<label for="fname">FIRST NAME<span class="star">*</span></label> <input
-					type="text" class="form-control" placeholder="Enter Name"
+					type="text" class="form-control" placeholder="Enter First Name"
 					name="userFirstName">
 			</div>
 			<div class="form-group">
 				<label for="lname">LAST NAME<span class="star">*</span></label> <input
-					type="text" class="form-control" placeholder="Enter Name"
-					name="userlastName">
+					type="text" class="form-control" placeholder="Enter Last Name"
+					name="userLastName">
 			</div>
 			<div class="form-group">
 				<label for="email">EMAIL<span class="star">*</span></label> <input

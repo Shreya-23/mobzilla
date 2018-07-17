@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -16,12 +18,13 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name="cart_table")
-@SequenceGenerator(name="cart_id",sequenceName="cart_seq")
+@SequenceGenerator(name="cartseq",sequenceName="cart_seq")
 public class CartBean {
 	
 	
 	@Id
 	@Column(name="cart_id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="cartseq")
 	private int cartId;
 	
 	@Column(name="user_id")
@@ -39,6 +42,17 @@ public class CartBean {
 	@Column(name="quantity")
 	private int quantity;
 	
+	@Column(name="unit_price", length = 10, precision = 2)
+	private double unitPrice;
+	
+	public double getUnitPrice() {
+		return unitPrice;
+	}
+
+	public void setUnitPrice(double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
 	@Column(name="total_price", length = 10, precision = 2)
 	private double totalPrice;
 

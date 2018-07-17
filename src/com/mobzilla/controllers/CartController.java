@@ -1,6 +1,8 @@
 package com.mobzilla.controllers;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +26,16 @@ import com.mobzilla.services.UserService;
 public class CartController {
 	
 	@Autowired
+	private UserService userService;
+	
+	@Autowired
 	private CartService cartService;
 	
 	@Autowired
 	private HomeService homeService ;
 	
 	@RequestMapping(value="{pid}addToCart.shop")
-	public String addProductToCart(@PathVariable("pid")int productId,HttpSession session){
+	public String addProductToCart(@PathVariable("pid")int productId,HttpSession session,Model model){
 		
 		if(session.getAttribute("userLogin")!=null)
 		{
@@ -41,22 +46,53 @@ public class CartController {
 		cart.setUserId(lbean.getEmail());
 		cart.setProductImage(product.getProductImgUrl());
 		cart.setProductName(product.getProductName());
-		cart.setTotalPrice(product.getProductPrice());
+		cart.setUnitPrice(product.getProductPrice());
+		
 		
 		boolean success=cartService.addProduct(cart);
 		
-		return "Home";
+		LoginBean login=(LoginBean)session.getAttribute("userLogin");
+		List<CartBean> cartList=cartService.getCartProducts(login);
+		model.addAttribute("cartProducts",cartList);
+		model.addAttribute("grandTotal",cartService.getTotal(cartList));
+		
+		return "Cart";
 		}
 		else 
 			return "Login";
 	}
+	
+	
+	@RequestMapping(value="{pid}deleteFromCart.shop")
+	public String deleteProductFromCart(@PathVariable("pid")int productId,HttpSession session,Model model){
+		
+		if(session.getAttribute("userLogin")!=null)
+		{
+		LoginBean lbean=(LoginBean)session.getAttribute("userLogin");
+		boolean success=cartService.deleteProduct(lbean,productId);
+		
+		LoginBean login=(LoginBean)session.getAttribute("userLogin");
+		List<CartBean> cartList=cartService.getCartProducts(login);
+		model.addAttribute("cartProducts",cartList);
+		model.addAttribute("grandTotal",cartService.getTotal(cartList));
+		
+		return "Cart";
+		}
+		else 
+			return "Login";
+	}
+	
+	
+	
 	
 	@RequestMapping(value="showCart.shop")
 	public String showCart(Model model,HttpSession session) {
 		
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		if(login!=null) {
-		model.addAttribute("cartProducts",cartService.getCartProducts(login));
+		List<CartBean> cartList=cartService.getCartProducts(login);
+		model.addAttribute("cartProducts",cartList);
+		model.addAttribute("grandTotal",cartService.getTotal(cartList));
 		return "Cart";
 		}
 		else
@@ -69,8 +105,26 @@ public class CartController {
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		
 		Boolean success=cartService.orderProducts(login);
+		model.addAttribute("BrandList",homeService.getAllBrands());
+		model.addAttribute("ProductList",homeService.getAllProducts());	
 		
 		return "Home";
 	}
+	
+	@RequestMapping(value="orderDetails.shop")
+	public String orderDetails(Model model,HttpSession session) {
+		
+		LoginBean login=(LoginBean)session.getAttribute("userLogin");
+		if(login!=null) {
+		List<CartBean> cartList=cartService.getCartProducts(login);
+		model.addAttribute("cartProducts",cartList);
+		model.addAttribute("grandTotal",cartService.getTotal(cartList));
+		model.addAttribute("address",userService.getUserAddress(login));
+		return "OrderDetails";
+		}
+		else
+		return "Home";
+	}
+	
 
 }

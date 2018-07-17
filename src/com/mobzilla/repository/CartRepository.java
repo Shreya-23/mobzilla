@@ -16,6 +16,8 @@ public interface CartRepository {
 	
 	public boolean addProduct(CartBean cart);
 	
+	public boolean deleteProduct(LoginBean lbean,int productId);
+	
 	public boolean updateProduct(CartBean cart);
 
 	public List<CartBean> getCartProducts(LoginBean login);

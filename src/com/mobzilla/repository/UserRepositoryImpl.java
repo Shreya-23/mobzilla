@@ -114,4 +114,27 @@ public class UserRepositoryImpl implements UserRepository{
 			return false;
 	}
 
+	@Override
+	public AddressBean getUserAddress(LoginBean login) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		String hql="FROM AddressBean where user= :useremail";
+		
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		
+		query.setParameter("useremail", login.getEmail());
+		
+		
+		List<AddressBean> list=query.list();
+		
+		txn.commit();
+		
+		if(!list.isEmpty())
+			return list.get(0);
+		else
+			return null;
+		
+	}
+
 }

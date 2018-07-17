@@ -11,5 +11,6 @@ public interface UserRepository {
 	public Boolean registerUser(UserBean user,AddressBean address);
 	public String matchDetails(UserBean user);
 	public boolean changePassword(ForgotBean bean);
+	public AddressBean getUserAddress(LoginBean login);
 
 }

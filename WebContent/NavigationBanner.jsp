@@ -94,6 +94,7 @@
 				 <a href="RegisterFrame.jsp">Register</a>
 			</div>
 		</div>
+		
 	</div>
 
 

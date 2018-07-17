@@ -16,6 +16,8 @@ import com.mobzilla.entity.LoginBean;
 import com.mobzilla.entity.OrdersBean;
 import com.mobzilla.entity.ProductBean;
 
+import oracle.net.aso.l;
+
 @Repository
 public class CartRepositoryImpl implements CartRepository {
 	
@@ -51,7 +53,7 @@ public class CartRepositoryImpl implements CartRepository {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.getCurrentSession();
 		Transaction txn=session.beginTransaction();
-		
+		cart.setTotalPrice(cart.getUnitPrice());
 		session.save(cart);
 		txn.commit();
 		return true;
@@ -63,10 +65,11 @@ public class CartRepositoryImpl implements CartRepository {
 		Session session=sessionFactory.getCurrentSession();
 		Transaction txn=session.beginTransaction();
 		
-		Query query=session.createQuery("UPDATE CartBean c SET c.quantity= :new WHERE c.userId= :user AND c.productId= :product");
+		Query query=session.createQuery("UPDATE CartBean c SET c.quantity= :new , c.totalPrice= :tprice WHERE c.userId= :user AND c.productId= :product");
 		query.setParameter("new",cart.getQuantity());
 		query.setParameter("user", cart.getUserId());
 		query.setParameter("product", cart.getProductId());
+		query.setParameter("tprice", (cart.getUnitPrice()*cart.getQuantity()));
 		query.executeUpdate();
 		txn.commit();
 		return true;
@@ -93,26 +96,64 @@ public class CartRepositoryImpl implements CartRepository {
 	@Override
 	public boolean orderProducts(LoginBean login,List<CartBean> cartList) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
-		Transaction txn=session.beginTransaction();
+		Session session=null;
+		Transaction txn=null;
 		OrdersBean order=new OrdersBean();
 		CartBean cart=null;
 		for(int i=0;i<cartList.size();i++) {
+			session=sessionFactory.getCurrentSession();
+			txn=session.beginTransaction();
 			cart=cartList.get(i);
 			order.setProductId(cart.getProductId());
 			order.setUserId(cart.getUserId());
 			order.setProductPrice(cart.getTotalPrice()*cart.getQuantity());
 			
 			session.save(order);
+			txn.commit();
+		}
+		session=sessionFactory.getCurrentSession();
+		txn=session.beginTransaction();
+		Query query=session.createQuery("DELETE CartBean WHERE userId= :user");
+		query.setParameter("user", login.getEmail());
+		query.executeUpdate();
+		txn.commit();
+		return true;
+	}
+
+	@Override
+	public boolean deleteProduct(LoginBean lbean, int productId) {
+		// TODO Auto-generated method stub
+		
+		Session session=sessionFactory.getCurrentSession();
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery("FROM CartBean WHERE userId= :user AND productId= :product");
+		query.setParameter("user", lbean.getEmail());
+		query.setParameter("product",productId);
+		
+		List<CartBean> products = query.list();
+		int quantity=products.get(0).getQuantity();
+		Double unitPrice=products.get(0).getUnitPrice();
+		if(quantity>1) {
+			
+			query=session.createQuery("UPDATE CartBean c SET c.quantity= :new ,c.totalPrice= :tprice WHERE c.userId= :user AND c.productId= :product");
+			query.setParameter("new",(quantity-1));
+			query.setParameter("user", lbean.getEmail());
+			query.setParameter("product", productId);
+			query.setParameter("tprice", (unitPrice*(quantity-1)));
+			query.executeUpdate();
+			
+		}
+		else {
+			
+			query=session.createQuery("DELETE CartBean WHERE userId= :user AND productId= :product");
+			query.setParameter("user", lbean.getEmail());
+			query.setParameter("product", productId);
+			query.executeUpdate();
+			
 		}
 		
-		
-		/*Query query=session.createQuery("DELETE CartBean WHERE userId= :user");
-		
-		query.setParameter("user", login.getEmail());
-		
-		query.executeUpdate();*/
 		txn.commit();
+		
 		
 		
 		

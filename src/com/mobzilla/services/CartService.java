@@ -16,4 +16,8 @@ public interface CartService {
 
 	public boolean orderProducts(LoginBean login);
 
+	public boolean deleteProduct(LoginBean lbean, int productId);
+
+	public double getTotal(List<CartBean> cartList);
+
 }

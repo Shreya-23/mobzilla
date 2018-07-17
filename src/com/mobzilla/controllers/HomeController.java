@@ -22,15 +22,14 @@ public class HomeController {
 	private HomeService service;
 	
 	@RequestMapping(value="Index.shop")
-	public String startIndex() {
-		
-		
+	public String startIndex(Model model) {
+		model.addAttribute("BrandList",service.getAllBrands());
 		return "Index";
 	}
 	
 	
 	@RequestMapping(value="{brand}home.shop")
-	public String populateProducts(@PathVariable("brand") int brand,Model model,@ModelAttribute("userEmail") ForgotBean bean,@ModelAttribute("userLogin") String userLogin){
+	public String populateProducts(@PathVariable("brand") int brand,Model model,@ModelAttribute("userEmail") ForgotBean bean){
 		System.out.println("home page started");
 		
 		model.addAttribute("BrandList",service.getAllBrands());

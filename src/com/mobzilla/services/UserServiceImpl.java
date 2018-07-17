@@ -48,4 +48,10 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
+	@Override
+	public AddressBean getUserAddress(LoginBean login) {
+		// TODO Auto-generated method stub
+		return repo.getUserAddress(login);
+	}
+
 }
