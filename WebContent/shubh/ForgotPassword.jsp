@@ -14,6 +14,23 @@
 <script src="js/main.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Change Password.</title>
+<style type="text/css">
+	.background{
+	 position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  background-image: url('css/pattern.svg');
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+	}
+	</style>
 </head>
 <body>
 <%@ include file="NavigationBanner.jsp"%>

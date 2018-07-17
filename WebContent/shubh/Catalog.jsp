@@ -37,11 +37,10 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="nameprice">
-						<p>Name: OPPO f7</p>
-						<p>Price: 20000</p>
-						<!-- <img src="css/oppoF7.png" alt="oppoF7"> -->
+						<p>Oneplus 6</p>
+						<p>36000</p>
 						<button id="blcart"></button>
-					</div>
+					</div><a href="#"><img src="css/op6 front.png" class="phimg" alt="oppoF7" style="width:150px; height:306px;"></a>
 				</div>
 				<div class="col-lg-4">.col-sm-4</div>
 				<div class="col-lg-4">.col-sm-4</div>

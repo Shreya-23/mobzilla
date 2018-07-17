@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -73,6 +72,7 @@
 	padding-top: 
 }
 
+
 </style>
 </head>
 <body>
@@ -82,40 +82,32 @@
 		<br>
 		<p>My Cart</p>
 		<hr class="custom">
-		
-		<c:forEach items="${ cartProducts}" var="cartItem">
+
 		<div class="col-lg-7">
-		<!-- ---------------------------------------------------------------------------------------- -->
-		
-		
 			<div class="row">
 				<div class="col-lg-3">
-					<a href=""><img src="${cartItem.productImage}" alt="op6" width="70px"
+					<a href=""><img src="css/op6 front.png" alt="op6" width="70px"
 						height="140px"></a>
-					<div class="row">
-						<a href="${cartItem.productId}deleteFromCart.shop"><button class="btn">-</button></a>
-						<input type="text"class="quant" value="${cartItem.quantity}">
-						<a href="${cartItem.productId}addToCart.shop"><button class="btn">+</button></a>
+						
+					<div class="input-group">
+						<button class="input-group-addon minus"></button>
+						<input type="text"class="quant" value="1">
+						<button class="input-group-addon plus" ></button>
 					</div>
 				</div>
 				<div class="col-lg-3" style="width: 300px;">
-					<p>${cartItem.productName}</p>
-					<p>Unit price: ${cartItem.unitPrice}</p>
-					<p>Total :${cartItem.totalPrice}</p>
+					<p>One Plus 6</p>
+					<p>Black</p>
+					<p>6GB</p>
+					<p>36000</p>
 					<p>Eligible for free delivery</p>
 				</div>
 			</div>
-			
-			<!-- ------------------------------------------------------------------------------------- -->
 		</div>
-		</c:forEach>
 		<div class="col-lg-5 price" style="border-left: 1px solid gray;">
-			
+			<p>Price Details</p>
+			<hr>
 			<p>Total Amount</p>
-			<p><c:out value="${grandTotal}"/>  </p>
-			<a href="orderDetails.shop">
-			<button class="btn">Buy</button>
-			</a>
 		</div>
 	</div>
 

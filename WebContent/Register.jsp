@@ -37,32 +37,33 @@ Enter Contact Number:<input name="userContact">
 		<button class="back" onclick="history.go(-1)"></button>
 		<h2>Register</h2>
 		<hr class="custom">
-		<spring:form action="RegisterUser.shop"
+		<spring:form name="myform" onsubmit="return myfun()" action="RegisterUser.shop"
 			modelAttribute="personalDetails" method="post">
+			<script src="js\RegistrationVal.js"></script>
 			<div class="form-group">
 				<label for="fname">FIRST NAME<span class="star">*</span></label> <input
 					type="text" class="form-control" placeholder="Enter First Name"
-					name="userFirstName">
+					name="userFirstName" id="fn_val" pattern="[A-Za-z]{1,50}" title="ACCEPT CHARACTERS ONLY">
 			</div>
 			<div class="form-group">
 				<label for="lname">LAST NAME<span class="star">*</span></label> <input
 					type="text" class="form-control" placeholder="Enter Last Name"
-					name="userLastName">
+					name="userLastName"  id="ln_val" pattern="[A-Za-z\s]{1,50}" title="ACCEPT CHARACTERS ONLY">
 			</div>
 			<div class="form-group">
 				<label for="email">EMAIL<span class="star">*</span></label> <input
 					type="email" class="form-control" placeholder="Enter Email"
-					name="userEmail">
+					name="userEmail" id="email_val"  pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 			</div>
 			<div class="form-group">
 				<label for="pwd">PASSWORD<span class="star">*</span></label> <input
-					type="password" class="form-control" placeholder="Enter password"
+					type="password"  id="password"  class="form-control" placeholder="Enter password"
 					name="userPass">
 			</div>
 			<div class="form-group">
 				<label for="contact">PHONE NUMBER<span class="star">*</span></label>
-				<input type="text" class="form-control" placeholder="Enter password"
-					name="userContact">
+				<input type="text" class="form-control" placeholder="Enter password" id="mobilenumber"
+					name="userContact" pattern="[6-9]{1}[0-9]{9}" title="10-digit MOBILE NUMBER ONLY">
 			</div>
 			<button type="submit" class="btnN" name="next">NEXT</button>
 		</spring:form>

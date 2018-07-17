@@ -10,6 +10,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
+	<script src="js\LoginVal.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
@@ -31,16 +32,16 @@
 	
 		<h2>Login</h2>
 		<hr class="custom">
-		<form action="LoginUser.shop" method="post">
+		<form name="myform" onsubmit="return myfun()" action="LoginUser.shop" method="post">
 			<div class="form-group">
 				<label for="email">EMAIL ADDRESS<span class="star">*</span></label>
 				<input type="email" class="form-control" placeholder="Enter email"
-					name="email">
+					name="email" id="email_val" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 			</div>
 			<div class="form-group">
 				<label for="pwd">PASSWORD<span class="star">*</span></label> <input
 					type="password" class="form-control" placeholder="Enter password"
-					name="password" required>
+					name="password"  id="password">
 			</div>
 			<br>
 				<c:if test="${userNotFound!=null}">
