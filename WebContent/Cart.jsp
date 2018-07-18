@@ -91,7 +91,7 @@
 		
 			<div class="row">
 				<div class="col-lg-3">
-					<a href=""><img src="${cartItem.productImage}" width="70px"
+					<a href="${cartItem.productId}ProductDesc.shop"><img src="${cartItem.productImage}" width="70px"
 						height="140px"></a>
 					<div class="row">
 						<a href="${cartItem.productId}deleteFromCart.shop"><button class="btn">-</button></a>

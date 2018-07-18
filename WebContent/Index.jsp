@@ -41,7 +41,11 @@
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
+<br><br>
 
+<div class="footer1">
+<%@ include file="Footer.jsp"%>
+</div>
 <script type="text/javascript">
 		window.onscroll = function() {
 			myFunction()
@@ -89,12 +93,6 @@
 			dots[slideIndex - 1].className += " active";
 		}
 	</script>
-<section id="about">
-<div class="footer">
-<br>
-  <p>About Us</p>
-</div>
-</section>
 
 </body>
 </html>

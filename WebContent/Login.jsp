@@ -53,11 +53,12 @@
 				us.</button>
 		</div>
 	</div>
-	<section id="about">
+
+	<section id="about"><%@ include file="Footer.jsp"%></section>
+	<!-- 
 	<div class="footer">
 		<br>
 		<p>About Us</p>
-	</div>
-	</section>
+	</div> -->
 </body>
 </html>

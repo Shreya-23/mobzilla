@@ -56,13 +56,13 @@
 	</div>
 	<script type="text/javascript">
 		window.onscroll = function() {
-			myFunction()
+			stickyNavbar()
 		};
 
 		var navbar = document.getElementById("navbar");
 		var sticky = navbar.offsetTop;
 
-		function myFunction() {
+		function stickyNavbar() {
 			if (window.pageYOffset >= sticky) {
 				navbar.classList.add("sticky")
 			} else {
