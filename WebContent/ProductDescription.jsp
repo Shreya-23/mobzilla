@@ -117,7 +117,7 @@ h1 {
 
 		<div class="col-lg-6" style="background-color: white; float: right;">
 
-		<h1><b>OnePLus 6 (Black, 64 GB) (6 GB RAM)</b></h1>
+		<h1><b>${ProductDesc.productName}</b></h1>
 
 
 			<table class="table table-hover">
