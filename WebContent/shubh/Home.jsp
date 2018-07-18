@@ -25,7 +25,6 @@
 				<li>
 					<div class="prod">
 
-
 						<a href="/project1/id=${product.productId}/ProductDesc.shop">
 							<img class="img-responsive" src="${product.productImgUrl }">
 						</a>

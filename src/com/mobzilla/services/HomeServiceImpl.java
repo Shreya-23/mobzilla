@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mobzilla.entity.BrandBean;
 import com.mobzilla.entity.ProductBean;
+import com.mobzilla.entity.SpecsBean;
 import com.mobzilla.repository.HomeRepository;
 
 @Service
@@ -38,6 +39,12 @@ public class HomeServiceImpl implements HomeService {
 	public List<BrandBean> getAllBrands() {
 		// TODO Auto-generated method stub
 		return repo.getAllBrands();
+	}
+
+	@Override
+	public SpecsBean getProductSpecs(int id) {
+		// TODO Auto-generated method stub
+		return repo.getProductSpecs(id);
 	}
 
 }

@@ -10,30 +10,14 @@
 	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration</title>
-
 <%@ taglib prefix="spring"
 	uri="http://www.springframework.org/tags/form"%>
 </head>
-<body class="bgphone">
-
-
-	<%-- <spring:form action="RegisterUser.shop" modelAttribute="personalDetails" method="post">
- <b> Enter Personal Details</b>
-
-Enter First Name:<input name="userFirstName"><br>
-Enter Last Name:<input name="userlastName"><br>
-Enter Email:<input name="userEmail">
-Enter Password:<input name="userPass"><br>
-Enter Contact Number:<input name="userContact">
-
-<input type="submit" name="Login">
-
-
-</spring:form> --%>
-
-	<!-- <div class="border"> -->
+<body>
+	<div class="background"></div>
+	<%@ include file="NavigationBanner.jsp"%>
 	<div class="smartphone" style="background-color:#FFF">
-		<div class="content" style="overflow:scroll; height:480px;">
+		<div class="content" style="overflow:scroll;">
 		<button class="back" onclick="history.go(-1)"></button>
 		<h2>Register</h2>
 		<hr class="custom">

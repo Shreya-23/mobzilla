@@ -63,7 +63,7 @@
 				</div>
 				<!-- <button type="submit" class="btnN">SUBMIT</button> -->
 			</spring:form>
-			<button onclick="parent.window.location.href='AddAddress.shop'"
+			<button onclick="window.location.href='AddAddress.shop'"
 				class="btnL">SUBMIT</button>
 		</div>
 	</div>

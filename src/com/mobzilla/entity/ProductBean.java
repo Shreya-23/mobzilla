@@ -21,9 +21,20 @@ public class ProductBean {
 	@Column(name="product_img_url")
 	private String productImgUrl;
 	
+	@Column(name="product_imgs_url")
+	private String productImgsUrl;
+	
 	@Column(name="product_name")
 	private String productName;
 	
+	public String getProductImgsUrl() {
+		return productImgsUrl;
+	}
+
+	public void setProductImgsUrl(String productImgsUrl) {
+		this.productImgsUrl = productImgsUrl;
+	}
+
 	@Column(name="product_brand")
 	private int productBrand;
 	

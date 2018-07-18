@@ -6,13 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/cart.css" rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
 <script src="js/main.js"></script>
 <title>Cart</title>
 
-<style type="text/css">
+<!-- <style type="text/css">
 .container {
 	max-width: 1200px;
 }
@@ -73,7 +74,7 @@
 	padding-top: 
 }
 
-</style>
+</style> -->
 </head>
 <body>
 	<%@ include file="NavigationBanner.jsp"%>
@@ -90,7 +91,7 @@
 		
 			<div class="row">
 				<div class="col-lg-3">
-					<a href=""><img src="${cartItem.productImage}" alt="op6" width="70px"
+					<a href=""><img src="${cartItem.productImage}" width="70px"
 						height="140px"></a>
 					<div class="row">
 						<a href="${cartItem.productId}deleteFromCart.shop"><button class="btn">-</button></a>

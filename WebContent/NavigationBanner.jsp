@@ -19,27 +19,6 @@
 <script src="js/bootstrap.min.js"></script>
 
 <body>
-
-	<%-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="banner">
-	<button onclick="window.location.href='${cartProducts.productId}/ProductDesc.shop'">CART</button>
-
-	<div class="col-sm-3 col-md-3 pull-right">
-		<form id="search-field-form" class="navbar-form" role="search"
-			action="<c:url value="products" />" method="GET">
-			<div class="input-group">
-				<input id="search-field" type="text" class="form-control"
-					placeholder="Search" name="srch-term" id="srch-term">
-				<div class="input-group-btn">
-					<button id="search-field-btn" class="btn btn-default" type="submit">
-						<i>GO</i>
-					</button>
-				</div>
-			</div>
-		</form>
-	</div>
-	<button onclick="window.location.href='LoginPage.shop'">Login</button>
-	</nav> --%>
-
 	<!-- Header NavBar-->
 	<div class="header">
 		<div id="logo">
@@ -49,20 +28,18 @@
 		</div>
 		<div id="tagline">STALK. RAWR. BUY.</div>
 	</div>
-	<br>
-	<br>
-
 	<div id="navbar">
-		<a class="active" href="allProducts.shop">Home</a>
+		<a href="allProducts.shop">Home</a>
 		<!-- --------------------------------------------------------explore-------------------- -->
 
 		<div class="dropdown" style="float: left;">
 			<button class="dropbtn">Explore Products</button>
-			<div class="dropdown-content" style="margin-top: 52px;">
+			<div class="dropdown-content" style="margin-top: 52px; float: right;">
 				<c:forEach items="${BrandList}" var="brands">
 
 
-					<a class="active" href="${brands.brandId}home.shop">${brands.brandName}</a>
+					<a href="${brands.brandId}home.shop">${brands.brandName}</a>
+					<br>
 
 
 					<%-- <spring:form action="${brands.brandId}home.shop" method="post">
@@ -74,7 +51,8 @@
 		</div>
 		<%-- <a class="active" href="0/home.shop">${userEmail.email}</a> --%>
 		<!-- --------------------------------------------------------explore--------------------- -->
-		<a href="#about">About Us</a> <a href="showCart.shop">
+		<a href="#about">About Us</a> <a href="showCart.shop"
+			style="float: right;">
 			<button id="cart"></button>
 		</a>
 		<div class="dropdown" style="float: right;">
@@ -83,11 +61,12 @@
 				style="margin-top: 52px; float: left; right: 20px;">
 				<c:if test="${userLogin==null}">
 					<a href="LoginPage.shop">Login</a>
+					<br> <a href="Register.jsp">Register</a>
 				</c:if>
 				<c:if test="${userLogin!=null}">
 					<a href="LogoutUser.shop">Logout</a>
 				</c:if>
-				<a href="Register.jsp">Register</a>
+				
 			</div>
 		</div>
 

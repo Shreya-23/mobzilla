@@ -17,45 +17,53 @@
 <script src="main.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+.background {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	display: block;
+	background-image: url('css/pattern.svg');
+	width: 100%;
+	height: 100%;
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+}
+</style>
 </head>
 <body>
-
-	<%-- <spring:form action="ChangePass.shop" method="post" modelAttribute="userEmail" >
-
-new password:
-<input name="password1">
-re-enter password:
-<input name="password2">
-<input type="submit">
-</spring:form> --%>
-
-<div class="smartphone" style="background-color: #FFF">
-		<div class="content" style="overflow: scroll; height: 480px;">
+	<%@ include file="NavigationBanner.jsp"%>
+	<div class="background"></div>
+	<div class="smartphone" style="background-color: #FFF">
+		<div class="content" style="overflow: scroll;">
 			<button class="back" onclick="history.go(-1)"></button>
-		<h2>Enter New Password</h2>
-		<hr class="custom">
-		<spring:form action="ChangePass.shop" method="post"
-			modelAttribute="userEmail">
-			<div class="form-group">
-				<label for="pass">NEW PASSWORD<span class="star">*</span></label> <input
-					type="password" class="form-control" name="password1">
-			</div>
-			<div class="form-group">
-				<label for="pass">RE-ENTER PASSWORD<span class="star">*</span></label>
-				<input type="password" class="form-control" name="password2">
-			</div>
-			<c:if test="${doPassMatch!=null}">
-				<b>Both passwords does not match</b>
+			<h2>Enter New Password</h2>
+			<hr class="custom">
+			<spring:form action="ChangePass.shop" method="post"
+				modelAttribute="userEmail">
+				<div class="form-group">
+					<label for="pass">NEW PASSWORD<span class="star">*</span></label> <input
+						type="password" class="form-control" name="password1">
+				</div>
+				<div class="form-group">
+					<label for="pass">RE-ENTER PASSWORD<span class="star">*</span></label>
+					<input type="password" class="form-control" name="password2">
+				</div>
+				<c:if test="${doPassMatch!=null}">
+					<b>Both passwords does not match</b>
 				</c:if>
-			<br>
-			<br>
-			<button type="submit" class="btnL">Submit</button>
-			<br>
-			<br>
-			<br>
-		</spring:form>
+				<br>
+				<br>
+				<button type="submit" class="btnL">Submit</button>
+				<br>
+				<br>
+				<br>
+			</spring:form>
+		</div>
 	</div>
-	</div>
-
 </body>
 </html>

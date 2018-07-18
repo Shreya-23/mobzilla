@@ -11,51 +11,19 @@
 	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration</title>
-<style type="text/css">
-.background {
-	position: fixed;
-	left: 0;
-	right: 0;
-	z-index: -1;
-	display: block;
-	background-image: url('css/pattern.svg');
-	width: 100%;
-	height: 100%;
-	-webkit-filter: blur(2px);
-	-moz-filter: blur(2px);
-	-o-filter: blur(2px);
-	-ms-filter: blur(2px);
-	filter: blur(2px);
-}
-</style>
 </head>
 
 <%@ taglib prefix="spring"
 	uri="http://www.springframework.org/tags/form"%>
-<body class="bgphone">
-
-
-	<%-- 	<spring:form action="AddAddress.shop" modelAttribute="addressDetails" method="get">
-<b> Enter Address Details</b>
-
-Address Line 1:<input name="addressLine1"><br>
-Address Line 2:<input name="addressLine2"><br>
-City:<input name="city">
-State:<input name="state"><br>
-Pin Code:<input name="pin">
-
-<input type="submit" name="Login">
-<br>
-
-
-</spring:form>
- --%>
+<body>
+<div class="background"></div>
 	<!-- 
 	<div class="border"> -->
 	<%@ include file="NavigationBanner.jsp"%>
 	<div class="smartphone" style="background-color: #FFF">
-		<div class="content" style="overflow: scroll; height: 480px;">
+		<div class="content" style="overflow: scroll;">
 			<button class="back" onclick="history.go(-1)"></button>
+			<h2>Personal Details</h2>
 			<hr class="custom">
 			<spring:form name="myform" onsubmit="return addressVal()"
 				action="AddAddress.shop" modelAttribute="addressDetails"

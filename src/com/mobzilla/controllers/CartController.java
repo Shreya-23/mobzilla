@@ -34,6 +34,11 @@ public class CartController {
 	@Autowired
 	private HomeService homeService ;
 	
+	
+	
+	
+	
+	
 	@RequestMapping(value="{pid}addToCart.shop")
 	public String addProductToCart(@PathVariable("pid")int productId,HttpSession session,Model model){
 		
@@ -49,14 +54,17 @@ public class CartController {
 		cart.setUnitPrice(product.getProductPrice());
 		
 		
-		boolean success=cartService.addProduct(cart);
-		
+		if(cartService.addProduct(cart));
+		{
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		List<CartBean> cartList=cartService.getCartProducts(login);
 		model.addAttribute("cartProducts",cartList);
 		model.addAttribute("grandTotal",cartService.getTotal(cartList));
 		
 		return "Cart";
+		
+		}
+		
 		}
 		else 
 			return "Login";
@@ -69,14 +77,19 @@ public class CartController {
 		if(session.getAttribute("userLogin")!=null)
 		{
 		LoginBean lbean=(LoginBean)session.getAttribute("userLogin");
-		boolean success=cartService.deleteProduct(lbean,productId);
-		
+		if(cartService.deleteProduct(lbean,productId))
+		{
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		List<CartBean> cartList=cartService.getCartProducts(login);
 		model.addAttribute("cartProducts",cartList);
 		model.addAttribute("grandTotal",cartService.getTotal(cartList));
 		
 		return "Cart";
+		}
+		else {
+			return "Home";
+		}
+		
 		}
 		else 
 			return "Login";

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mobzilla.entity.ForgotBean;
+import com.mobzilla.entity.ProductBean;
 import com.mobzilla.services.HomeService;
 
 @Controller
@@ -49,10 +50,17 @@ public class HomeController {
 	@RequestMapping(value="{id}ProductDesc.shop",method=RequestMethod.GET)
 	public String getProductDesc(@PathVariable("id") int id, Model model){
 		
-		model.addAttribute("ProductDesc",service.getProductDesc(id));
+		ProductBean pBean=service.getProductDesc(id);
+		model.addAttribute("ProductDesc",pBean);
+		model.addAttribute("Images",pBean.getProductImgsUrl().split(";"));
+		model.addAttribute("ProductSpecs",service.getProductSpecs(id));
 		System.out.println("desc page started image:"+service.getProductDesc(id).getProductImgUrl());
-		return "ProductDesc";
+		return "ProductDescription";
 	}
+	
+	
+	
+	
 	
 	@RequestMapping(value="/{id}/addToCart.shop",method=RequestMethod.GET)
 	public String addToCart(@PathVariable("id") int id, Model model){

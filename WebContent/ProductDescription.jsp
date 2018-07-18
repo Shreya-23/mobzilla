@@ -10,7 +10,7 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </head>
-<style>
+<!-- <style>
 body {
 	font-family: 'Raleway';
 }
@@ -77,25 +77,36 @@ h1 {
 
 .col-lg-6 {
 	float: right;
-}
-</style>
+} */
+</style> -->
 <body>
 	<%@ include file="NavigationBanner.jsp"%>
 	<div class="container-fluid">
 
 		<div class="col-lg-2">
+			
 			<div class="row">
-				<img id="phsmall" src="css/op6 front.png" width="80px"
+				<img id="phsmall" src="${ProductDesc.productImgUrl}" width="80px"
 					height="163px" onclick="myFunction(this);">
 			</div>
+			
+			<c:forEach items="${Images}" var="image">
 			<div class="row">
+				<img id="phsmall" src="${image}" width="80px"
+					height="163px" onclick="myFunction(this);">
+			</div>
+			</c:forEach>
+			
+			
+			
+		<!-- 	<div class="row">
 				<img id="phsmall" src="css/op6 back.png" width="80px" height="163px"
 					onclick="myFunction(this);">
 			</div>
 			<div class="row">
 				<img id="phsmall" src="css/op6 side.jpg" width="80px" height="163px"
 					onclick="myFunction(this);">
-			</div>
+			</div> -->
 		</div>
 
 		<div class="col-lg-4">
@@ -112,31 +123,58 @@ h1 {
 			<table class="table table-hover">
 
 				<tr>
-					<td><b>Warranty:</b></td>
-					<td>Brand Warranty of 1 Year Available 6 Months for
-						Accessories</td>
+					<td><b>Price:</b></td>
+					<td>Rs. <c:out value="${ProductDesc.productPrice}"/></td>
 				</tr>
 				<tr>
-					<td><b>Highlights:</b></td>
-					<td>4 GB RAM | 64 GB ROM | Expandable Upto 256 GB 6.23 inch
-						FHD+ Display 16MP Rear Camera | 25MP Front Camera 3400 mAh Battery
-						MTK P60 Octa Core 2.0 GHz Processor
+					<td><b>Description:</b></td>
+					<td><c:out value="${ProductDesc.productDesc}"/></td>
+				</tr>
+				
+				<tr>
+					<td><b>General:</b></td>
+					<td><c:out value="${ProductSpecs.general}"/></td>
+				</tr>
+				
+				<tr>
+					<td><b>Design:</b></td>
+					<td><c:out value="${ProductSpecs.design}"/></td>
+				</tr>
+				
+				<tr>
+					<td><b>Display:</b></td>
+					<td><c:out value="${ProductSpecs.display}"/></td>
+				</tr>
+				
+				<tr>
+					<td><b>Hardware:</b></td>
+					<td><c:out value="${ProductSpecs.hardware}"/></td>
+				</tr>
+				
+				<tr>
+					<td><b>Software:</b></td>
+					<td><c:out value="${ProductSpecs.software}"/></td>
+				</tr>
+				
+				<tr>
+					<td><b>Camera:</b></td>
+					<td><c:out value="${ProductSpecs.camera}"/></td>
+				</tr>
+				
+				<tr>
+					<td><b>Battery:</b></td>
+					<td><c:out value="${ProductDesc.productDesc}"/></td>
 				</tr>
 				<tr>
-					<td><b>Specifications:</b></td>
-					<td>In The Box : Handset, Headset, Micro USB Cable, Quick
-						Guide, SIM Card Tool, Film, Case Model Number : CPH1819 Model Name
-						: F7 Color : Black Browse Type : Smartphones SIM Type : Dual SIM
-						Hybrid SIM Slot : No Touch Screen : Yes OTG Compatible : Yes</td>
+					<td>   
+						<a href="${ProductDesc.productId}addToCart.shop">
+			<button class="btn">ADD TO CART</button>
+			</a>
+					</td>
 				</tr>
-				<tr>
-					<td><b>Display Features:</b></td>
-					<td>Display Size : 6.23 inch Resolution Type : FHD+
-				</tr>
-				<tr>
-					<th>Camera Features:</th>
-					<td>Primary Camera : 16MP Secondary Camera : 8MP</td>
-				</tr>
+				
+				
+				
 			</table>
 		</div>
 	</div>

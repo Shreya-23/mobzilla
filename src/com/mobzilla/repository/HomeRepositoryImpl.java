@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mobzilla.entity.BrandBean;
 import com.mobzilla.entity.ProductBean;
+import com.mobzilla.entity.SpecsBean;
 
 @Repository
 public class HomeRepositoryImpl implements HomeRepository {
@@ -76,6 +77,21 @@ public class HomeRepositoryImpl implements HomeRepository {
 		
 		txn.commit();
 		return brands;
+	}
+
+	@Override
+	public SpecsBean getProductSpecs(int id) {
+		// TODO Auto-generated method stub
+		String hql="FROM SpecsBean P WHERE P.productId =:product_id";
+		
+		Session session=sessionFactory.getCurrentSession();
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		query.setParameter("product_id", id);
+		SpecsBean specs=(SpecsBean) query.list().get(0);
+		txn.commit();
+		
+		return specs;
 	}
 
 }
