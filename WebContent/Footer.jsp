@@ -9,7 +9,7 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 <style>
-.footer{
+.footer1{
 	padding: 50px;
 	position: relative;
 	font-family: 'Raleway';
@@ -47,7 +47,7 @@ width:20px;
 </style>
 </head>
 <body>
-<div class="footer">
+<div class="footer1">
 <center><i>Searching for one stop solution for buying mobile with great understanding of its features...You are at the right place!</i></center><br>
 
 <div class="row">
@@ -73,30 +73,9 @@ width:20px;
 </div>
 <div class="col-md-3"></div>
 </div>
-
 <hr class="custom">
 <p>Copyright &copy;2018 Mobzilla.All rights reserved</p>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-<script>
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
-}
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-
-</script>
-
-
 </div>
 
 </body>

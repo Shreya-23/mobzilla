@@ -13,21 +13,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <%@ include file="NavigationBanner.jsp"%>
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
 
 <div class="mySlides">
-  <img src="homepage-images/img1.jpg" style="width:100%">
+  <img src="homepage-images/img1.jpg" style="width:100%; height: 100%;">
 </div>
 
 <div class="mySlides">
-  <img src="homepage-images/img2.jpg" style="width:100%">
+  <img src="homepage-images/img2.jpg" style="width:100% ; height: 100%;">
 </div>
 
 <div class="mySlides">
-  <img src="homepage-images/img3.jpg" style="width:100%">
+  <img src="homepage-images/img3.jpg" style="width:100% ; height: 100%;">
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -42,10 +43,10 @@
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 <br><br>
-
-<div class="footer1">
+<section id="about">
+<div class="footer">
 <%@ include file="Footer.jsp"%>
-</div>
+</div></section>
 <script type="text/javascript">
 		window.onscroll = function() {
 			myFunction()

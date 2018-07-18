@@ -54,7 +54,10 @@
 		</div>
 	</div>
 
-	<section id="about"><%@ include file="Footer.jsp"%></section>
+	<section id="about">
+<div class="footer">
+<%@ include file="Footer.jsp"%>
+</div></section>
 	<!-- 
 	<div class="footer">
 		<br>

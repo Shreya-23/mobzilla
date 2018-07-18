@@ -24,20 +24,10 @@
 			<c:forEach items="${Images}" var="image">
 				<div class="row">
 					<img id="phsmall" src="${image}" width="80px" height="163px"
-						onclick="myFunction(this);">
+						onclick="expandImage(this);">
 				</div>
 			</c:forEach>
 
-
-
-			<!-- 	<div class="row">
-				<img id="phsmall" src="css/op6 back.png" width="80px" height="163px"
-					onclick="myFunction(this);">
-			</div>
-			<div class="row">
-				<img id="phsmall" src="css/op6 side.jpg" width="80px" height="163px"
-					onclick="myFunction(this);">
-			</div> -->
 		</div>
 
 		<div class="col-lg-4">
@@ -51,7 +41,6 @@
 			<h1>
 				<b><c:out value="${ProductDesc.productName}" /></b>
 			</h1>
-
 
 			<table class="table table-hover">
 
@@ -107,7 +96,10 @@
 			</table>
 		</div>
 	</div>
-
+<section id="about">
+<div class="footer">
+<%@ include file="Footer.jsp"%>
+</div></section>
 	<script>
 		function expandImage(imgs) {
 			var expandImg = document.getElementById("expandedImg");

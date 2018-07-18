@@ -47,72 +47,32 @@
 
 			<div class="row">
 				<!-- ------------------------------------------------ -->
-
-
 				<c:forEach items="${ProductList}" var="product">
 
-					<div class="col-lg-4">
-						<div class="nameprice">
-							<p>${product.productName}</p>
-							<p>Rs. ${product.productPrice}</p>
+					<div class="col-lg-4"
+						style="margin-left: 80px; margin-bottom: 50px;">
+						<center>
+							<a href="${product.productId}ProductDesc.shop"><img
+								src="${product.productImgUrl }" class="phimg" alt="oppoF7"
+								style="width: 150px; height: 306px;"></a>
 
-							<a href="${product.productId}addToCart.shop"><button>ADD</button></a>
-						</div>
-						<a href="${product.productId}ProductDesc.shop"><img
-							src="${product.productImgUrl }" class="phimg" alt="oppoF7"
-							style="width: 150px; height: 306px;"></a>
+							<div class="nameprice">
+								<p>${product.productName}</p>
+								<p>Rs. ${product.productPrice}</p>
+								<a href="${product.productId}addToCart.shop"><button>ADD</button></a>
+							</div>
+						</center>
 					</div>
-
-
-					<%-- <div class="col-lg-4">
-					<div class="nameprice">
-						<p>Name: ${product.productName}</p>
-						<p>Price: ${product.productPrice}</p>
-						<a href="/project1/id=${product.productId}/ProductDesc.shop">
-						<img src="${product.productImgUrl }" alt="${product.productName}">
-						</a>
-						<button id="blcart"></button>
-					</div>
-				</div> --%>
-
 				</c:forEach>
 				<!-- ------------------------------------------------------- -->
 			</div>
 		</div>
 	</div>
 
-
-
-
-	<%-- <div id="allproducts">
-		<ul>
-			<c:forEach items="${ProductList}" var="product">
-				<li>
-					<div class="prod">
-
-
-						<a href="/project1/id=${product.productId}/ProductDesc.shop">
-							<img class="img-responsive" src="${product.productImgUrl }">
-						</a>
-						<p>
-							<b>${product.productBrand}</b>
-						</p>
-						<p>${product.productName}</p>
-						<p>Price ${product.productPrice}</p>
-
-						<form method="get" action="${product.productId}/addToCart.shop">
-							<input type="submit" name="submit" value="ADD TO CART" />
-						</form>
-
-						<a href="/project1/${product.productId}/addToCart.shop">
-							<button>ADD TO CART</button>
-						</a>
-					</div>
-				</li>
-			</c:forEach>
-		</ul>
-	</div> --%>
-	
-<%@ include file="Footer.jsp"%>
+	<section id="about">
+	<div class="footer">
+		<%@ include file="Footer.jsp"%>
+	</div>
+	</section>
 </body>
 </html>

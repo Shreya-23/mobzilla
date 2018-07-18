@@ -163,18 +163,15 @@
 	background-color: #8c8c8c;
 }
 
-.footer1{
+.footer {
 	position: relative;
-	font-family:'Raleway';
-	left : 0;
-	/* margin-top: 70px; */
-
+	font-family: 'Raleway';
+	left: 0;
+	bottom: 0;
 	width: 100%;
 	height: 300px;
 	background-color: #25282e;
 	color: white;
-	/* text-align: center; */
-	bottom: 0;
 }
 /*--------------------Device Look------------------- */
 .smartphone {
@@ -332,9 +329,8 @@ input.form-control:focus {
 
 .filter {
 	float: left;
-	padding-right:10px;
-	border-right:1px solid black;
-	border-bottom: 1px solid black;
+	position: fixed;
+	padding-right: 10px;
 	font-family: 'Raleway';
 	font-size: 16px;
 	max-width: 200px;
@@ -479,16 +475,13 @@ input.finput {
 	z-index: 1;
 }
 
-.col-lg-4.nameprice {
-	color:black;
+.nameprice {
+	color: black;
 	text-align: center;
 	background-color: #FFF;
 	font-family: 'Raleway';
 	font-weight: bold;
-	position: absolute;
 	bottom: -5px;
-	left: 10px;
-	margin-left: -10px;
 	width: 200px;
 	height: 50px;
 	/* opacity: 0.4; */
@@ -507,7 +500,7 @@ input.finput {
 }
 
 .mySlides {
-	display: none
+	display: none;
 }
 
 img {
@@ -517,6 +510,7 @@ img {
 /* Slideshow container */
 .slideshow-container {
 	max-width: 1500px;
+	min-height: 700px;
 	position: relative;
 	margin: auto;
 }
@@ -599,7 +593,6 @@ to {
 	}
 }
 /* product Description*/
-
 body {
 	font-family: 'Raleway';
 }

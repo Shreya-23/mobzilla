@@ -119,6 +119,9 @@
 			</a>
 		</div>
 	</div>
-
+<section id="about">
+<div class="footer">
+<%@ include file="Footer.jsp"%>
+</div></section>
 </body>
 </html>

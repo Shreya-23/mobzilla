@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mobzilla.entity.CartBean;
 import com.mobzilla.entity.LoginBean;
+import com.mobzilla.entity.PayBean;
 import com.mobzilla.entity.ProductBean;
 import com.mobzilla.entity.UserBean;
 import com.mobzilla.services.CartService;
@@ -137,6 +138,13 @@ public class CartController {
 		}
 		else
 		return "Home";
+	}
+	
+	@RequestMapping(value="payment.shop")
+	public String paymentPage() {
+		
+		System.out.println("pay");
+		return "payment";
 	}
 	
 
