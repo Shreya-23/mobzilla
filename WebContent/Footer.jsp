@@ -53,7 +53,7 @@ width:20px;
 <div class="row">
   <div class="col-md-3"><b>Our Services</b>
 <ul>
-<li><img src="rupee.svg"> COD All Over India</li>
+<li><img src="css/rupee.svg"> COD All Over India</li>
 <li><img src="plane.svg"> International Delivery</li>
 <li><img src="replacement.svg"> 15 Days Easy Replacement</li>
 </ul>

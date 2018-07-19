@@ -16,6 +16,22 @@
 <link href="css/home.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script src="js/bootstrap.min.js"></script>
+<script src="js/refresh.js"></script>
+<style type="text/css">
+.catalog .col-lg-4 button {
+	background-color: black;
+	color: white;
+	border-radius: 0;
+	border: none; width : 100px;
+	height: 40px;
+	text-decoration: none;
+	width: 100px;
+}
+
+.nameprice a {
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
 
@@ -28,7 +44,6 @@
 			<hr class="custom">
 			<p>Filter by brands
 			<p>
-			
 			<form>
 				<c:forEach items="${BrandList}" var="brands">
 					<label class="checkbox"><c:out value="${brands.brandName}" /><input
@@ -54,7 +69,8 @@
 							<div class="nameprice">
 								<p>${product.productName}</p>
 								<p>Rs. ${product.productPrice}</p>
-								<a href="${product.productId}addToCart.shop"><button class="addcart">ADD</button></a>
+								<a href="${product.productId}addToCart.shop"><button>ADD
+										TO CART</button></a>
 							</div>
 						</center>
 					</div>
@@ -64,7 +80,7 @@
 		</div>
 	</div>
 
-<%-- 	<section id="about">
+	<%-- 	<section id="about">
 	<div class="footer">
 		<%@ include file="Footer.jsp"%>
 	</div> --%>

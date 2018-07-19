@@ -9,14 +9,22 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/refresh.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/addval.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration</title>
+<style type="text/css">
+	
+</style>
 </head>
 
 <%@ taglib prefix="spring"
 	uri="http://www.springframework.org/tags/form"%>
 <body>
-<div class="background"></div>
+	<div class="background"></div>
 	<!-- 
 	<div class="border"> -->
 	<%@ include file="NavigationBanner.jsp"%>
@@ -44,13 +52,52 @@
 						pattern="[A-Za-z]{1,50}" title="ACCEPT CHARACTERS ONLY">
 				</div>
 				<div class="form-group">
-					<label for="state">STATE<span class="star">*</span></label> <input
-						type="text" class="form-control" name="state" id="statee"
-						pattern="[.&+a-zA-Z\s]*$">
+					<label for="state">STATE<span class="star">*<br></span></label>
+					 <select
+						name="List" class="state">
+						<option  value="Select State">Select State</option>
+						<option value="Andaman and Nicobar Islands">Andaman and
+							Nicobar Islands</option>
+						<option value="Andhra Pradesh">Andhra Pradesh</option>
+						<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+						<option value="Assam">Assam</option>
+						<option value="Bihar">Bihar</option>
+						<option value="Chandigarh">Chandigarh</option>
+						<option value="Chhattisgarh">Chhattisgarh</option>
+						<option value="Dadra and Nagar Haveli">Dadra and Nagar
+							Haveli</option>
+						<option value="Daman and Diu">Daman and Diu</option>
+						<option value="Delhi">Delhi</option>
+						<option value="Goa">Goa</option>
+						<option value="Gujarat">Gujarat</option>
+						<option value="Haryana">Haryana</option>
+						<option value="Himachal Pradesh">Himachal Pradesh</option>
+						<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+						<option value="Jharkhand">Jharkhand</option>
+						<option value="Karnataka">Karnataka</option>
+						<option value="Kerala">Kerala</option>
+						<option value="Lakshadweep">Lakshadweep</option>
+						<option value="Madhya Pradesh">Madhya Pradesh</option>
+						<option value="Maharashtra">Maharashtra</option>
+						<option value="Manipur">Manipur</option>
+						<option value="Meghalaya">Meghalaya</option>
+						<option value="Mizoram">Mizoram</option>
+						<option value="Nagaland">Nagaland</option>
+						<option value="Orissa">Orissa</option>
+						<option value="Pondicherry">Pondicherry</option>
+						<option value="Punjab">Punjab</option>
+						<option value="Rajasthan">Rajasthan</option>
+						<option value="Sikkim">Sikkim</option>
+						<option value="Tamil Nadu">Tamil Nadu</option>
+						<option value="Tripura">Tripura</option>
+						<option value="Uttaranchal">Uttaranchal</option>
+						<option value="Uttar Pradesh">Uttar Pradesh</option>
+						<option value="West Bengal">West Bengal</option>
+					</select>
 				</div>
 				<div class="form-group">
 					<label for="pincode">PIN CODE<span class="star">*</span></label> <input
-						type="text" class="form-control" name="pin" id="pin"
+						type="text" class="form-control" name="pin" id="pincode"
 						pattern="[1-9]{1}[0-9]{5}" title=" 6 DIGIT PIN ONLY">
 				</div>
 				<button type="submit" class="btnN" name="next">SUBMIT</button>
@@ -58,8 +105,9 @@
 		</div>
 	</div>
 	<section id="about">
-<div class="footer">
-<%@ include file="Footer.jsp"%>
-</div></section>
+	<div class="footer">
+		<%@ include file="Footer.jsp"%>
+	</div>
+	</section>
 </body>
 </html>
