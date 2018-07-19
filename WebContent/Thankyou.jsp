@@ -68,8 +68,9 @@ h1 {
 			<h1>thank you for<br> shopping with us.</h1>
 			<br>
 			</div>
-			<button class="btn btn-dark" onclick="Home.jsp">Continue
-				Shopping</button>
+			<a href="allProducts.shop">
+			<button class="btn btn-dark">Continue
+				Shopping</button></a>
 		
 	</center>
 </body>

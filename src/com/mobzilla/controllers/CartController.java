@@ -162,5 +162,14 @@ public class CartController {
 		return "payment";
 	}
 	
+	@RequestMapping(value="Thankyou.shop")
+	public String thanksPage() {
+		
+		System.out.println("pay");
+		return "Thankyou";
+	}
+	
+	
+	
 
 }

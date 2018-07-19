@@ -82,8 +82,10 @@
 <br>
 <br>
 <br>
+<a href="Thankyou.shop">
 <button class="btn btn-primary" onclick="generatePDF()">
        Save as PDF</button>
+</a>
 <br>
 <div id="formConfirmation">
 	<div class="container">
