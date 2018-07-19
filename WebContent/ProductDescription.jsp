@@ -7,8 +7,19 @@
 <title>Product Description</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/home.css">
-
+<script src="js/refresh.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<style type="text/css">
+	.btn{
+		background-color: black;
+		color:white;
+		border-radius:0;
+		border:none; 
+	}
+	.link a:hover{
+		color:white;
+	}
+</style>
 </head>
 <body>
 	<%@ include file="NavigationBanner.jsp"%>
@@ -88,7 +99,7 @@
 					<td><c:out value="${ProductDesc.productDesc}" /></td>
 				</tr>
 				<tr>
-					<td><a href="${ProductDesc.productId}addToCart.shop">
+					<td><a href="${ProductDesc.productId}addToCart.shop" class="link">
 							<button class="btn">ADD TO CART</button>
 					</a></td>
 				</tr>

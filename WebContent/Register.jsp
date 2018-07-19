@@ -8,7 +8,10 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/RegVal.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="js/refresh.js"></script>
 <title>Registration</title>
 <%@ taglib prefix="spring"
 	uri="http://www.springframework.org/tags/form"%>

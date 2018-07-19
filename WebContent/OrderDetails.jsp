@@ -10,145 +10,65 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
-<script src="js/main.js"></script>
 
-<title>Insert title here</title>
-
-<style type="text/css">
-.container {
-	max-width: 1200px;
-}
-
-.row {
-	max-height: 190px;
-	max-width: 900px;
-}
-
-.row .plmin {
-	max-height: 25px;
-	max-width: 83px;
-	margin-left: 0px;
-	margin-top: 10px;
-	padding-top: 10px;
-	padding-left: 2px;
-	background-color: #669999;
-}
-
-.plus {
-	background-image: url(css/plus-symbol.svg);
-	background-repeat: no-repeat;
-	background-size: 15px 15px;
-	border: none;
-	width: 20px;
-	height: 20px;
-	background-color: white;
-	margin: auto;
-}
-
-.minus {
-	background-image: url(css/minus-symbol.svg);
-	background-repeat: no-repeat;
-	background-size: 15px 15px;
-	border: none;
-	width: 20px;
-	height: 20px;
-	background-color: white;
-	margin: auto;
-}
-
-.quant {
-	border: none;
-	font-family: 'Raleway';
-	font-size: 20px;
-	text-align: center;
-	width: 20px;
-	height: 30px;
-	margin: auto;
-}
-</style>
-
+<title>Order Details</title>
 
 </head>
 <body>
 	<%@ include file="NavigationBanner.jsp"%>
 	<div class="container">
-		<br> <br>
-		<h1>Order Details</h1>
+		<center>
+			<h1>Order Details</h1>
+		</center>
 		<hr class="custom">
-
 		<c:set value="${address}" var="addres" />
 		<div class="row">
 			<div class="col-lg-4">
 				<h3>Shipping Details</h3>
-				<br>
-				<p>Address :</p>
 				<p>
+					Address :
 					<c:out value="${addres.addressLine1}" />
-				</p>
-				<p>
 					<c:out value="${addres.addressLine2}" />
 				</p>
-				<p>City :</p>
 				<p>
+					City :
 					<c:out value="${addres.city}" />
 				</p>
-				<p>State :</p>
 				<p>
+					State :
 					<c:out value="${addres.state}" />
 				</p>
-				<p>Pin Code :</p>
 				<p>
+					Pin Code :
 					<c:out value="${addres.pin}" />
 				</p>
 			</div>
-
-			<div class="col-lg-4" style="width: 300px;">
+			<div class="col-lg-4">
 				<h3>Order Summary</h3>
-				<br>
-
+				
 				<!-- ---------------------------------------------------------------------------------------- -->
 				<c:forEach items="${ cartProducts}" var="cartItem">
-		<div class="col-lg-7">
-		
-		
-		
-			<div class="row">
-				
-				<div class="col-lg-3" style="width: 300px;">
+
 					<p>${cartItem.productName}</p>
 					<p>Rs. ${cartItem.unitPrice} x ${cartItem.quantity}</p>
 					<p>Total :${cartItem.totalPrice}</p>
-					
-				</div>
-			</div>
-			
-			
-		</div>
-		</c:forEach>
-				
+
+				</c:forEach>
 				<!-- ------------------------------------------------------------------------------------- -->
-			
 			</div>
-
 			<div class="col-lg-4" style="border-left: 1px solid gray;">
-				
-
 				<h3>
-					GRAND TOTAL :
+					Grand Total:
 					<c:out value="${grandTotal.total}"></c:out>
 				</h3>
 				<hr>
 				<a href="payment.shop">
 					<button class="btn">DEBIT CARD PAYMENT</button>
-				</a>
-					<a href="order.shop">
+				</a> <a href="order.shop">
 					<button class="btn">CASH ON DELIVERY</button>
 				</a>
 			</div>
-
 		</div>
 	</div>
-
-
 </body>
 </html>

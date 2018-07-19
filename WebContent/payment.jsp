@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/payval.js"></script>
 <title>Payment</title>
 
 <style>
@@ -128,7 +130,7 @@ span.price {
 						<label for="expdate">Exp Date</label> <input type="month"
 							id="expmonth" name="expdate" placeholder="Expiry Date"><br>
 
-						<br> <label for="cvv">CVV</label> <input type="text" id="cvv"
+						<br> <label for="cvv">CVV</label> <input type="password" id="cvv"
 							name="cvv" placeholder="CVV" pattern="[0-9]{1}[0-9]{2}"
 							title="3 digits CVV only">
 					</div>

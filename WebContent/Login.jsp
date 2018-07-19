@@ -11,11 +11,12 @@
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
 <script src="js\LoginVal.js"></script>
+<script src="js\refresh.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
 
-<body>
+<body onkeydown="return (event.keyCode != 116)">
 	<div class="background"></div>
 	<%@ include file="NavigationBanner.jsp"%>
 	<div class="smartphone" style="background-color: #FFF">
