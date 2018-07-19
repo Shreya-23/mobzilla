@@ -39,9 +39,8 @@
 				</div>
 				<br>
 				<c:if test="${userNotFound!=null}">
-					<button class="btnF"
-						onclick="window.location.href='forgotPassword.shop'">Forgot
-						Password?</button>
+					<a href="forgotPassword.shop">Forgot
+						Password?</a>
 				</c:if>
 				
 				<c:if test="${alreadyRegistered!=null}">

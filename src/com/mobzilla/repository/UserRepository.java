@@ -14,5 +14,7 @@ public interface UserRepository {
 	public AddressBean getUserAddress(LoginBean login);
 	public boolean checkRegistered(UserBean user);
 	public UserBean getProfile(LoginBean login);
+	public boolean checkVerify(String email,String code);
+	public String getCode(UserBean user);
 
 }

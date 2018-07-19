@@ -37,6 +37,9 @@
 				<c:if test="${isPhoneCorrect!=null}">
 					<b>Email and Phone number doesnot match</b>
 				</c:if>
+				<c:if test="${noOtp!=null}">
+					OTP entered is incorrect
+				</c:if>
 				<br>
 				<br>
 				<button type="submit" class="btnL">Submit</button>

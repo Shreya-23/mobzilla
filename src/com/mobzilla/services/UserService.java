@@ -18,4 +18,6 @@ public interface UserService {
 	public AddressBean getUserAddress(LoginBean login);
 	public boolean alreadyRegistered(UserBean user);
 	public UserBean getUserDetails(LoginBean login);
+	public boolean checkVerify(String email,String code);
+	public String getCode(UserBean user);
 }

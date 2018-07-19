@@ -186,4 +186,51 @@ public class UserRepositoryImpl implements UserRepository{
 			return null;
 	}
 
+	@Override
+	public boolean checkVerify(String email,String code) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		String hql="FROM UserBean where userEmail=:username AND verification= :verify";
+		
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		query.setParameter("username",email);
+		query.setParameter("verify", code);
+		//String userName=query.toString();
+		List list=query.list();
+		txn.commit();
+		
+		/*if(userName!=null)
+			return true;
+		else
+			return null;*/
+		
+		if(!list.isEmpty())
+			return true;
+		else
+			return false;
+		
+		
+	}
+
+	@Override
+	public String getCode(UserBean user) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		String hql="FROM UserBean where userEmail=:username";
+		
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		query.setParameter("username",user.getUserEmail());
+		
+		List<UserBean> list=query.list();
+		txn.commit();
+		
+		
+		if(!list.isEmpty())
+			return list.get(0).getVerification();
+		else
+			return null;
+	}
+
 }

@@ -21,6 +21,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Boolean registerUser(UserBean user,AddressBean address) {
 		// TODO Auto-generated method stub
+		CodeGenerator code=new CodeGenerator();
+		user.setVerification(code.generateCode());
 		return repo.registerUser(user,address);
 	}
 
@@ -64,6 +66,18 @@ public class UserServiceImpl implements UserService {
 	public UserBean getUserDetails(LoginBean login) {
 		// TODO Auto-generated method stub
 		return repo.getProfile(login);
+	}
+
+	@Override
+	public boolean checkVerify(String email,String code) {
+		// TODO Auto-generated method stub
+		return repo.checkVerify(email,code);
+	}
+
+	@Override
+	public String getCode(UserBean user) {
+		// TODO Auto-generated method stub
+		return repo.getCode(user);
 	}
 
 }

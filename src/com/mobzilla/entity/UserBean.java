@@ -22,7 +22,7 @@ import org.hibernate.annotations.OnDeleteAction;
 public class UserBean {
 	
 	
-	@NaturalId
+	
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="userseq")
 	private int userId;
@@ -43,9 +43,30 @@ public class UserBean {
 	@Column(name="user_contact")
 	private String userContact;
 	
+	@Column(name="verification")
+	private String verification;
+	
+	public String getVerification() {
+		return verification;
+	}
+	
 	@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade={javax.persistence.CascadeType.ALL})
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<AddressBean> address;
+
+	public void setVerification(String verification) {
+		this.verification = verification;
+	}
+
+	public List<AddressBean> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<AddressBean> address) {
+		this.address = address;
+	}
+
+	
 
 	public int getUserId() {
 		return userId;
