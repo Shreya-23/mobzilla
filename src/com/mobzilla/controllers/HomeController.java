@@ -30,7 +30,7 @@ public class HomeController {
 	
 	
 	@RequestMapping(value="{brand}home.shop")
-	public String populateProducts(@PathVariable("brand") int brand,Model model,@ModelAttribute("userEmail") ForgotBean bean,@ModelAttribute("userLogin") String userLogin){
+	public String populateProducts(@PathVariable("brand") int brand,Model model,@ModelAttribute("userLogin") String userLogin){
 		System.out.println("home page started");
 		
 		model.addAttribute("BrandList",service.getAllBrands());
