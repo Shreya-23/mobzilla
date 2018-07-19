@@ -75,7 +75,7 @@ width:20px;
 </div>
 <hr class="custom">
 <p>Copyright &copy;2018 Mobzilla.All rights reserved</p>
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
 </div>
 
 </body>

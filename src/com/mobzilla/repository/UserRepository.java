@@ -12,5 +12,7 @@ public interface UserRepository {
 	public String matchDetails(UserBean user);
 	public boolean changePassword(ForgotBean bean);
 	public AddressBean getUserAddress(LoginBean login);
+	public boolean checkRegistered(UserBean user);
+	public UserBean getProfile(LoginBean login);
 
 }

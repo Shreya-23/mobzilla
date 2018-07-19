@@ -1,5 +1,7 @@
 package com.mobzilla.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import com.mobzilla.entity.AddressBean;
 import com.mobzilla.entity.ForgotBean;
 import com.mobzilla.entity.LoginBean;
 import com.mobzilla.entity.UserBean;
+import com.mobzilla.services.CartService;
 import com.mobzilla.services.HomeService;
 import com.mobzilla.services.UserService;
 
@@ -27,6 +30,9 @@ public class UserController {
 	
 	@Autowired
 	private HomeService homeService;
+	
+	@Autowired
+	private CartService cartService;
 	
 	@RequestMapping(value="LoginUser.shop")
 	public String loginUser(LoginBean login, Model model) {
@@ -56,13 +62,13 @@ public class UserController {
 		
 		System.out.println(user.getUserLastName());
 		model.addAttribute("personalDetails",user);
-	/*	Boolean isRegistered=service.registerUser(user);*/
-		/*if(isRegistered) {
+		
+		if(service.alreadyRegistered(user)) {
+			
+			model.addAttribute("alreadyRegistered","true");
 			return "Login";
 		}
-		else {
-			return "Home";
-		}*/
+		else
 		return "Address";
 	}
 	
@@ -130,5 +136,25 @@ public class UserController {
 		 status.setComplete();
 		 model.addAttribute("userLogin",null);
 		return "Index";
+	}
+	
+	@RequestMapping("profile.shop")
+	public String getUserProfile(Model model,HttpSession session) {
+		
+		try {
+		LoginBean login=(LoginBean)session.getAttribute("userLogin");
+		model.addAttribute("BrandList",homeService.getAllBrands());
+		model.addAttribute("ProductList",homeService.getAllProducts());
+		model.addAttribute("address",service.getUserAddress(login));
+		model.addAttribute("user",service.getUserDetails(login));
+		model.addAttribute("orders",cartService.getUserOrders(login));
+				
+		return "Profile";
+		
+		}catch (Exception e) {
+			// TODO: handle exception
+			return "Home";
+		}
+		
 	}
 }

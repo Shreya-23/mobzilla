@@ -22,7 +22,7 @@ public class HomeRepositoryImpl implements HomeRepository {
 	@Override
 	public List<ProductBean> getAllProducts() {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		
 		List<ProductBean> products = session.createQuery("FROM ProductBean").list();
@@ -38,7 +38,7 @@ public class HomeRepositoryImpl implements HomeRepository {
 		// TODO Auto-generated method stub
 		String hql="FROM ProductBean P WHERE P.productId =:product_id";
 		
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		Query query=session.createQuery(hql);
 		query.setParameter("product_id", id);
@@ -54,7 +54,7 @@ public class HomeRepositoryImpl implements HomeRepository {
 		
 		String hql="FROM ProductBean P WHERE P.productBrand =:product_brand";
 		
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		Query query=session.createQuery(hql);
 		query.setInteger("product_brand", brand);
@@ -68,7 +68,8 @@ public class HomeRepositoryImpl implements HomeRepository {
 	@Override
 	public List<BrandBean> getAllBrands() {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		try {
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		
 		List<BrandBean> brands = session.createQuery("FROM BrandBean").list();
@@ -77,6 +78,11 @@ public class HomeRepositoryImpl implements HomeRepository {
 		
 		txn.commit();
 		return brands;
+		}catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+		
 	}
 
 	@Override
@@ -84,7 +90,7 @@ public class HomeRepositoryImpl implements HomeRepository {
 		// TODO Auto-generated method stub
 		String hql="FROM SpecsBean P WHERE P.productId =:product_id";
 		
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		Query query=session.createQuery(hql);
 		query.setParameter("product_id", id);

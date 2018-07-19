@@ -96,10 +96,10 @@
 			</table>
 		</div>
 	</div>
-<section id="about">
+<%-- <section id="about">
 <div class="footer">
 <%@ include file="Footer.jsp"%>
-</div></section>
+</div></section> --%>
 	<script>
 		function expandImage(imgs) {
 			var expandImg = document.getElementById("expandedImg");

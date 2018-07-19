@@ -78,4 +78,13 @@ public class CartServiceImpl implements CartService {
 		return total;
 	}
 
+
+
+
+	@Override
+	public List<OrdersBean> getUserOrders(LoginBean login) {
+		// TODO Auto-generated method stub
+		return repo.getUserOrder(login);
+	}
+
 }

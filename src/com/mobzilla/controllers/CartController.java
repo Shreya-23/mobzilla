@@ -13,17 +13,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.mobzilla.entity.AddressBean;
 import com.mobzilla.entity.CartBean;
 import com.mobzilla.entity.LoginBean;
-import com.mobzilla.entity.PayBean;
 import com.mobzilla.entity.ProductBean;
+import com.mobzilla.entity.TotalBean;
 import com.mobzilla.entity.UserBean;
 import com.mobzilla.services.CartService;
 import com.mobzilla.services.HomeService;
 import com.mobzilla.services.UserService;
 
 @Controller
-@SessionAttributes({"userLogin"})
+@SessionAttributes({"userLogin","cartProducts","grandTotal","address"})
 public class CartController {
 	
 	@Autowired
@@ -59,8 +60,10 @@ public class CartController {
 		{
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		List<CartBean> cartList=cartService.getCartProducts(login);
+		TotalBean total=new TotalBean();
+		total.setTotal(cartService.getTotal(cartList));
 		model.addAttribute("cartProducts",cartList);
-		model.addAttribute("grandTotal",cartService.getTotal(cartList));
+		model.addAttribute("grandTotal",total);
 		
 		return "Cart";
 		
@@ -82,8 +85,11 @@ public class CartController {
 		{
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		List<CartBean> cartList=cartService.getCartProducts(login);
+		
+		TotalBean total=new TotalBean();
+		total.setTotal(cartService.getTotal(cartList));
 		model.addAttribute("cartProducts",cartList);
-		model.addAttribute("grandTotal",cartService.getTotal(cartList));
+		model.addAttribute("grandTotal",total);
 		
 		return "Cart";
 		}
@@ -105,8 +111,10 @@ public class CartController {
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		if(login!=null) {
 		List<CartBean> cartList=cartService.getCartProducts(login);
+		TotalBean total=new TotalBean();
+		total.setTotal(cartService.getTotal(cartList));
 		model.addAttribute("cartProducts",cartList);
-		model.addAttribute("grandTotal",cartService.getTotal(cartList));
+		model.addAttribute("grandTotal",total);
 		return "Cart";
 		}
 		else
@@ -117,12 +125,17 @@ public class CartController {
 	public String orderCartProducts(Model model,HttpSession session) {
 		
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
+		System.out.println("-------total-------");
+		/*System.out.println(total.getTotal());*/
+		model.addAttribute("cartProducts",session.getAttribute("cartProducts"));
+		model.addAttribute("grandTotal",session.getAttribute("grandTotal"));
+		model.addAttribute("address",session.getAttribute("address"));
 		
 		Boolean success=cartService.orderProducts(login);
 		model.addAttribute("BrandList",homeService.getAllBrands());
 		model.addAttribute("ProductList",homeService.getAllProducts());	
 		
-		return "Home";
+		return "BillDetails";
 	}
 	
 	@RequestMapping(value="orderDetails.shop")
@@ -131,8 +144,10 @@ public class CartController {
 		LoginBean login=(LoginBean)session.getAttribute("userLogin");
 		if(login!=null) {
 		List<CartBean> cartList=cartService.getCartProducts(login);
+		TotalBean total=new TotalBean();
+		total.setTotal(cartService.getTotal(cartList));
 		model.addAttribute("cartProducts",cartList);
-		model.addAttribute("grandTotal",cartService.getTotal(cartList));
+		model.addAttribute("grandTotal",total);
 		model.addAttribute("address",userService.getUserAddress(login));
 		return "OrderDetails";
 		}

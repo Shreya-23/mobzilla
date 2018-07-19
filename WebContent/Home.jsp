@@ -28,12 +28,7 @@
 			<hr class="custom">
 			<p>Filter by brands
 			<p>
-				<c:if test="${userLogin==null}">
-				user not Login
-				</c:if>
-				<c:if test="${userLogin!=null}">
-				user login
-				</c:if>
+			
 			<form>
 				<c:forEach items="${BrandList}" var="brands">
 					<label class="checkbox"><c:out value="${brands.brandName}" /><input
@@ -59,7 +54,7 @@
 							<div class="nameprice">
 								<p>${product.productName}</p>
 								<p>Rs. ${product.productPrice}</p>
-								<a href="${product.productId}addToCart.shop"><button>ADD</button></a>
+								<a href="${product.productId}addToCart.shop"><button class="addcart">ADD</button></a>
 							</div>
 						</center>
 					</div>
@@ -69,10 +64,10 @@
 		</div>
 	</div>
 
-	<section id="about">
+<%-- 	<section id="about">
 	<div class="footer">
 		<%@ include file="Footer.jsp"%>
-	</div>
+	</div> --%>
 	</section>
 </body>
 </html>

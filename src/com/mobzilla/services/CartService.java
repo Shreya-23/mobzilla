@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.mobzilla.entity.CartBean;
 import com.mobzilla.entity.LoginBean;
+import com.mobzilla.entity.OrdersBean;
 
 
 public interface CartService {
@@ -19,5 +20,7 @@ public interface CartService {
 	public boolean deleteProduct(LoginBean lbean, int productId);
 
 	public double getTotal(List<CartBean> cartList);
+
+	public List<OrdersBean> getUserOrders(LoginBean login);
 
 }

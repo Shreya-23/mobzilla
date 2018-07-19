@@ -54,4 +54,16 @@ public class UserServiceImpl implements UserService {
 		return repo.getUserAddress(login);
 	}
 
+	@Override
+	public boolean alreadyRegistered(UserBean user) {
+		// TODO Auto-generated method stub
+		return repo.checkRegistered(user);
+	}
+
+	@Override
+	public UserBean getUserDetails(LoginBean login) {
+		// TODO Auto-generated method stub
+		return repo.getProfile(login);
+	}
+
 }

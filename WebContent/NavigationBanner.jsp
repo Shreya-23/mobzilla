@@ -21,11 +21,13 @@
 <body>
 	<!-- Header NavBar-->
 	<div class="header">
+	<a href="Index.shop">
 		<div id="logo">
 			M<img src="homepage-images/smartphone.svg" class="logoiconO">B<img
 				src="homepage-images/godzilla.svg" class="logoiconA"
 				style="-webkit-transform: scaleX(-1); transform: scaleX(-1);">ILLA
 		</div>
+		</a>
 		<div id="tagline">STALK. RAWR. BUY.</div>
 	</div>
 	<div id="navbar">
@@ -36,16 +38,8 @@
 			<button class="dropbtn">Explore Products</button>
 			<div class="dropdown-content" style="margin-top: 52px; float: right;">
 				<c:forEach items="${BrandList}" var="brands">
-
-
 					<a href="${brands.brandId}home.shop">${brands.brandName}</a>
 					<br>
-
-
-					<%-- <spring:form action="${brands.brandId}home.shop" method="post">
-				<button type="submit">${brands.brandName}</button>
-				</spring:form> --%>
-
 				</c:forEach>
 			</div>
 		</div>
@@ -61,15 +55,16 @@
 				style="margin-top: 52px; float: left; right: 20px;">
 				<c:if test="${userLogin==null}">
 					<a href="LoginPage.shop">Login</a>
-					<br> <a href="Register.jsp">Register</a>
+					<br>
+					<a href="Register.jsp">Register</a>
 				</c:if>
 				<c:if test="${userLogin!=null}">
 					<a href="LogoutUser.shop">Logout</a>
 				</c:if>
-				
+
 			</div>
 		</div>
-
+				<div class="hello" style="float: right; color:white;"><a href="profile.shop">${userLogin.email}</a></div>
 	</div>
 	<script type="text/javascript">
 		window.onscroll = function() {

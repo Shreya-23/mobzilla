@@ -113,15 +113,12 @@
 		<div class="col-lg-5 price" style="border-left: 1px solid gray;">
 			
 			<p>Total Amount</p>
-			<p><c:out value="${grandTotal}"/>  </p>
+			<p><c:out value="${grandTotal.total}"/>  </p>
 			<a href="orderDetails.shop">
 			<button class="btn">Buy</button>
 			</a>
 		</div>
 	</div>
-<section id="about">
-<div class="footer">
-<%@ include file="Footer.jsp"%>
-</div></section>
+
 </body>
 </html>

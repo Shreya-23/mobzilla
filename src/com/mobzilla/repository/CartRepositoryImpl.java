@@ -1,6 +1,8 @@
 package com.mobzilla.repository;
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -27,7 +29,7 @@ public class CartRepositoryImpl implements CartRepository {
 	@Override
 	public AddProductBean productExist(CartBean cart) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		Query query=session.createQuery("FROM CartBean WHERE userId= :user AND productId= :product");
 		query.setParameter("user", cart.getUserId());
@@ -51,7 +53,7 @@ public class CartRepositoryImpl implements CartRepository {
 	@Override
 	public boolean addProduct(CartBean cart) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		cart.setTotalPrice(cart.getUnitPrice());
 		session.save(cart);
@@ -62,7 +64,7 @@ public class CartRepositoryImpl implements CartRepository {
 	@Override
 	public boolean updateProduct(CartBean cart) {
 		
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		
 		Query query=session.createQuery("UPDATE CartBean c SET c.quantity= :new , c.totalPrice= :tprice WHERE c.userId= :user AND c.productId= :product");
@@ -78,7 +80,7 @@ public class CartRepositoryImpl implements CartRepository {
 	@Override
 	public List<CartBean> getCartProducts(LoginBean login) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		
 		Query query=session.createQuery("FROM CartBean WHERE userId= :user");
@@ -101,17 +103,21 @@ public class CartRepositoryImpl implements CartRepository {
 		OrdersBean order=new OrdersBean();
 		CartBean cart=null;
 		for(int i=0;i<cartList.size();i++) {
-			session=sessionFactory.getCurrentSession();
+			session=sessionFactory.openSession();
 			txn=session.beginTransaction();
 			cart=cartList.get(i);
+			order.setDate(getDateTime());
 			order.setProductId(cart.getProductId());
+			order.setProductName(cart.getProductName());
+			order.setProductPrice(cart.getUnitPrice());
+			order.setQuantity(cart.getQuantity());
 			order.setUserId(cart.getUserId());
-			order.setProductPrice(cart.getTotalPrice()*cart.getQuantity());
+			order.setTotalPrice((cart.getUnitPrice()*cart.getQuantity()));
 			
 			session.save(order);
 			txn.commit();
 		}
-		session=sessionFactory.getCurrentSession();
+		session=sessionFactory.openSession();
 		txn=session.beginTransaction();
 		Query query=session.createQuery("DELETE CartBean WHERE userId= :user");
 		query.setParameter("user", login.getEmail());
@@ -124,7 +130,7 @@ public class CartRepositoryImpl implements CartRepository {
 	public boolean deleteProduct(LoginBean lbean, int productId) {
 		// TODO Auto-generated method stub
 		
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		Transaction txn=session.beginTransaction();
 		Query query=session.createQuery("FROM CartBean WHERE userId= :user AND productId= :product");
 		query.setParameter("user", lbean.getEmail());
@@ -159,6 +165,29 @@ public class CartRepositoryImpl implements CartRepository {
 		
 		
 		return true;
+	}
+
+	@Override
+	public List<OrdersBean> getUserOrder(LoginBean login) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		Transaction txn=session.beginTransaction();
+		
+		Query query=session.createQuery("FROM OrdersBean WHERE userId= :user");
+		
+		query.setParameter("user", login.getEmail());
+		
+		List<OrdersBean> list=query.list();
+		txn.commit();
+	
+		return list;
+	}
+	
+	private String getDateTime() {
+		
+		 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		   LocalDateTime now = LocalDateTime.now();  
+		   return dtf.format(now); 
 	}
 	
 	

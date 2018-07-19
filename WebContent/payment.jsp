@@ -132,19 +132,18 @@ span.price {
 							name="cvv" placeholder="CVV" pattern="[0-9]{1}[0-9]{2}"
 							title="3 digits CVV only">
 					</div>
+					<center>
+			<input type="submit" value="Submit" class="btn">
+		</center>
+					
 				</form>
 			</div>
 		</div>
 
-		<center>
-			<input type="submit" value="Submit" class="btn">
-		</center>
+	
 	</div>
 
-<section id="about">
-<div class="footer">
-<%@ include file="Footer.jsp"%>
-</div></section>
+
 
 </body>
 </html>

@@ -16,4 +16,6 @@ public interface UserService {
 	public String matchDetails(UserBean user);
 	public boolean changePassword(ForgotBean bean);
 	public AddressBean getUserAddress(LoginBean login);
+	public boolean alreadyRegistered(UserBean user);
+	public UserBean getUserDetails(LoginBean login);
 }

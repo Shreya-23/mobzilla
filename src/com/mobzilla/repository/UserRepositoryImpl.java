@@ -26,7 +26,7 @@ public class UserRepositoryImpl implements UserRepository{
 		Session session=null;
 		Transaction txn=null;
 		try {
-			session=sessionFactory.getCurrentSession();
+			session=sessionFactory.openSession();
 			txn=session.beginTransaction();
 			session.save(user);
 			session.save(address);
@@ -44,7 +44,7 @@ public class UserRepositoryImpl implements UserRepository{
 	@Override
 	public Boolean validate(LoginBean login) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		String hql="FROM UserBean where userEmail=:username AND userPass=:userpass";
 		
 		Transaction txn=session.beginTransaction();
@@ -70,7 +70,7 @@ public class UserRepositoryImpl implements UserRepository{
 	public String matchDetails(UserBean user) {
 		// TODO Auto-generated method stub
 		
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		System.out.println("email contact----"+user.getUserContact());
 		String hql="FROM UserBean where userEmail= :useremail AND userContact= :usercontact";
 		
@@ -96,7 +96,7 @@ public class UserRepositoryImpl implements UserRepository{
 		// TODO Auto-generated method stub
 		
 
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		String hql="UPDATE UserBean user SET user.userPass= :pass WHERE user.userEmail= :email";
 		
 		Transaction txn=session.beginTransaction();
@@ -117,7 +117,7 @@ public class UserRepositoryImpl implements UserRepository{
 	@Override
 	public AddressBean getUserAddress(LoginBean login) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		Session session=sessionFactory.openSession();
 		String hql="FROM AddressBean where user= :useremail";
 		
 		Transaction txn=session.beginTransaction();
@@ -135,6 +135,55 @@ public class UserRepositoryImpl implements UserRepository{
 		else
 			return null;
 		
+	}
+
+	@Override
+	public boolean checkRegistered(UserBean user) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		String hql="FROM UserBean where userEmail=:username";
+		
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		query.setParameter("username",user.getUserEmail());
+		
+		//String userName=query.toString();
+		List list=query.list();
+		txn.commit();
+		
+		/*if(userName!=null)
+			return true;
+		else
+			return null;*/
+		
+		if(!list.isEmpty())
+			return true;
+		else
+			return false;
+	}
+
+	@Override
+	public UserBean getProfile(LoginBean login) {
+		Session session=sessionFactory.openSession();
+		String hql="FROM UserBean where userEmail=:username";
+		
+		Transaction txn=session.beginTransaction();
+		Query query=session.createQuery(hql);
+		query.setParameter("username",login.getEmail());
+		
+		//String userName=query.toString();
+		List list=query.list();
+		txn.commit();
+		
+		/*if(userName!=null)
+			return true;
+		else
+			return null;*/
+		
+		if(!list.isEmpty())
+			return (UserBean)list.get(0);
+		else
+			return null;
 	}
 
 }

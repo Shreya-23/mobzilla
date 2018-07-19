@@ -12,18 +12,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name="users_table")
-@SequenceGenerator(name="user_id",sequenceName="user_seq")
+@SequenceGenerator(name="userseq",sequenceName="user_seq")
 public class UserBean {
 	
 	
-	
+	@NaturalId
 	@Column(name="user_id")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="userseq")
 	private int userId;
 	
 	@Column(name="userf_name")

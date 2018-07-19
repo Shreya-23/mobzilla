@@ -24,6 +24,8 @@ public interface CartRepository {
 
 	public boolean orderProducts(LoginBean login,List<CartBean> cartList);
 
+	public List<OrdersBean> getUserOrder(LoginBean login);
+
 	
 	
 	

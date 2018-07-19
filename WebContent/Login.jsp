@@ -43,6 +43,11 @@
 						onclick="window.location.href='forgotPassword.shop'">Forgot
 						Password?</button>
 				</c:if>
+				
+				<c:if test="${alreadyRegistered!=null}">
+					User Already Exists
+				</c:if>
+				
 				<br> <br>
 				<button type="submit" class="btnL" name="Login">LOGIN</button>
 
