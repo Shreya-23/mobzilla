@@ -10,7 +10,7 @@
 	rel="stylesheet">
 	<script src="js/main.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Mobzilla</title>
 </head>
 <body>
 

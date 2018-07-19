@@ -123,12 +123,12 @@ span.price {
 						<label for="cname">Name on Card</label> <input type="text"
 							id="cname" name="cardname" placeholder="Enter Name on Card"
 							pattern="[A-Za-z\s]{1,50}" title="ACCEPT ONLY CHARACTERS">
-						<label for="ccnum">Credit card number</label> <input type="text"
+						<label for="ccnum">Card Number</label> <input type="text"
 							id="ccnum" name="cardnumber"
 							placeholder="1111-2222-3333-4444 - only 16 digit"
 							pattern="((4\d{3})|(5[1-5]\d{2}))( |)?\d{4}(\4\d{4}){2}">
 						<label for="expdate">Exp Date</label> <input type="month"
-							id="expmonth" name="expdate" placeholder="Expiry Date"><br>
+							id="expmonth" name="expdate" min="2018-07" max="2040-12" placeholder="Expiry Date"><br>
 
 						<br> <label for="cvv">CVV</label> <input type="password" id="cvv"
 							name="cvv" placeholder="CVV" pattern="[0-9]{1}[0-9]{2}"

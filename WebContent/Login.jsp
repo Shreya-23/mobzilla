@@ -59,14 +59,8 @@
 		</div>
 	</div>
 
-	<section id="about">
 <div class="footer">
 <%@ include file="Footer.jsp"%>
-</div></section>
-	<!-- 
-	<div class="footer">
-		<br>
-		<p>About Us</p>
-	</div> -->
+</div>
 </body>
 </html>

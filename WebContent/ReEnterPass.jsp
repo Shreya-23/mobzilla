@@ -16,7 +16,7 @@
 	rel="stylesheet">
 <script src="main.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Re-Enter Password</title>
 <style type="text/css">
 .background {
 	position: fixed;

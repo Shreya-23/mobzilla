@@ -10,15 +10,16 @@
 <script src="js/refresh.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <style type="text/css">
-	.btn{
-		background-color: black;
-		color:white;
-		border-radius:0;
-		border:none; 
-	}
-	.link a:hover{
-		color:white;
-	}
+.btn {
+	background-color: black;
+	color: white;
+	border-radius: 0;
+	border: none;
+}
+
+.link a:hover {
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -99,7 +100,8 @@
 					<td><c:out value="${ProductDesc.productDesc}" /></td>
 				</tr>
 				<tr>
-					<td><a href="${ProductDesc.productId}addToCart.shop" class="link">
+					<td><a href="${ProductDesc.productId}addToCart.shop"
+						class="link">
 							<button class="btn">ADD TO CART</button>
 					</a></td>
 				</tr>
@@ -107,10 +109,7 @@
 			</table>
 		</div>
 	</div>
-<%-- <section id="about">
-<div class="footer">
-<%@ include file="Footer.jsp"%>
-</div></section> --%>
+
 	<script>
 		function expandImage(imgs) {
 			var expandImg = document.getElementById("expandedImg");

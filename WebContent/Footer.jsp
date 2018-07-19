@@ -54,8 +54,8 @@ width:20px;
   <div class="col-md-3"><b>Our Services</b>
 <ul>
 <li><img src="css/rupee.svg"> COD All Over India</li>
-<li><img src="plane.svg"> International Delivery</li>
-<li><img src="replacement.svg"> 15 Days Easy Replacement</li>
+<li><!-- <img src="plane.svg"> --> International Delivery</li>
+<li><!-- <img src="replacement.svg">  -->15 Days Easy Replacement</li>
 </ul>
 </div>
  <div class="col-md-3"><b>Our Products</b>
@@ -65,7 +65,7 @@ width:20px;
 <li>Quality Assurance</li>
 </ul>
 </div>
-<div class="col-md-3"><img src="contact.svg"><b> Contact Us</b>
+<div class="col-md-3"><!-- <img src="contact.svg"> --><b> Contact Us</b>
 <ul>
 <li>Email Us   : mobzilla@lntinfotech.com</li>
 <li>Contact Us : 10008008</li>

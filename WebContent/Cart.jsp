@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/refresh.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -81,46 +82,48 @@
 <body>
 	<%@ include file="NavigationBanner.jsp"%>
 	<div class="container">
-		<br>
-		<br>
+		<br> <br>
 		<p>My Cart</p>
 		<hr class="custom">
-		
+
 		<c:forEach items="${ cartProducts}" var="cartItem">
-		<div class="col-lg-7">
-		<!-- ---------------------------------------------------------------------------------------- -->
-		
-		
-			<div class="row">
-				<div class="col-lg-3">
-					<a href="${cartItem.productId}ProductDesc.shop"><img src="${cartItem.productImage}" width="70px"
-						height="140px"></a>
-					<div class="row">
-						<a href="${cartItem.productId}deleteFromCart.shop"><button class="btn">-</button></a>
-						<input type="text"class="quant" value="${cartItem.quantity}">
-						<a href="${cartItem.productId}addToCart.shop"><button class="btn">+</button></a>
+			<div class="col-lg-7">
+				<!-- ---------------------------------------------------------------------------------------- -->
+
+
+				<div class="row">
+					<div class="col-lg-3">
+						<a href="${cartItem.productId}ProductDesc.shop"><img
+							src="${cartItem.productImage}" width="70px" height="140px"></a>
+						<div class="row">
+							<a href="${cartItem.productId}deleteFromCart.shop"><button
+									class="btn">-</button></a> <input type="text" class="quant"
+								value="${cartItem.quantity}"> <a
+								href="${cartItem.productId}addToCart.shop"><button
+									class="btn">+</button></a>
+						</div>
+					</div>
+					<div class="col-lg-3" style="width: 300px;">
+						<p>${cartItem.productName}</p>
+						<p>Unit price: ${cartItem.unitPrice}</p>
+						<p>Total :${cartItem.totalPrice}</p>
+						<p>Eligible for free delivery</p>
 					</div>
 				</div>
-				<div class="col-lg-3" style="width: 300px;">
-					<p>${cartItem.productName}</p>
-					<p>Unit price: ${cartItem.unitPrice}</p>
-					<p>Total :${cartItem.totalPrice}</p>
-					<p>Eligible for free delivery</p>
-				</div>
+
+				<!-- ------------------------------------------------------------------------------------- -->
 			</div>
-			
-			<!-- ------------------------------------------------------------------------------------- -->
-		</div>
 		</c:forEach>
 		<div class="col-lg-5 price" style="border-left: 1px solid gray;">
-			
+
 			<p>Total Amount</p>
-			<p><c:out value="${grandTotal.total}"/>  </p>
+			<p>
+				<c:out value="${grandTotal.total}" />
+			</p>
 			<a href="orderDetails.shop">
-			<button class="btn">Buy</button>
+				<button class="btn">Buy</button>
 			</a>
 		</div>
 	</div>
-
 </body>
 </html>

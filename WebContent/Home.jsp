@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Home</title>
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
@@ -25,7 +25,7 @@
 	border: none; width : 100px;
 	height: 40px;
 	text-decoration: none;
-	width: 100px;
+	width: 150px;
 }
 
 .nameprice a {
@@ -60,7 +60,7 @@
 				<c:forEach items="${ProductList}" var="product">
 
 					<div class="col-lg-4"
-						style="margin-left: 80px; margin-bottom: 50px;">
+						style="margin-left: 80px; margin-bottom: 70px;">
 						<center>
 							<a href="${product.productId}ProductDesc.shop"><img
 								src="${product.productImgUrl }" class="phimg" alt="oppoF7"
@@ -80,10 +80,5 @@
 		</div>
 	</div>
 
-	<%-- 	<section id="about">
-	<div class="footer">
-		<%@ include file="Footer.jsp"%>
-	</div> --%>
-	</section>
 </body>
 </html>

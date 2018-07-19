@@ -21,7 +21,7 @@ function myfun() {
 	}
 
 	if (d.length < 6) {
-		alert("PASSWORD IS WEAK !! ");
+		alert("PASSWORD IS INCORRECT !! ");
 		return false;
 	}
 	if (d.length > 10) {
