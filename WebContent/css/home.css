@@ -1,13 +1,27 @@
 @CHARSET "ISO-8859-1";
-
 /* Navigation Bar */
+body {
+	cursor: default;
+}
+
 .header {
-	background-color: #f1f1f1;
+	background-color: #fff;
 	z-index: 1;
 	font-family: Raleway;
 	font-size: 36px;
-	padding: 20px;
-	height: 50px;
+	height: 65px;
+	padding-top: 14px;
+	padding-left: 14px;
+	padding-right: 14px;
+	cursor: de
+}
+
+.header a {
+	color: black;
+}
+
+.header a:hover {
+	color: #262626;
 }
 
 .logoiconO {
@@ -27,6 +41,7 @@
 	overflow: hidden;
 	background-color: #000;
 	z-index: 1;
+	height: 52px;
 }
 
 #navbar a {
@@ -57,20 +72,23 @@
 
 #tagline {
 	float: right;
+	margin-right: 10px;
+	color: black;
 }
 
 #logo {
 	float: left;
+	margin-left: 10px;
 }
 
 #login {
 	background: url(avatar.svg);
 	background-repeat: no-repeat;
 	background-size: 25px 25px;
+	background-position: center;
 	border: none;
-	width: 40px;
-	height: 40px;
-	margin: 13px 20px 0 0;
+	width: 52px;
+	height: 52px;
 	cursor: pointer;
 }
 
@@ -79,18 +97,20 @@
 	background-repeat: no-repeat;
 	background-size: 25px 25px;
 	border: none;
-	float: right;
 	width: 30px;
 	height: 30px;
-	margin: 13px 20px 0 0;
+	/* margin: 13px 20px 0 0; */
 	cursor: pointer;
+}
+
+#login:hover {
+	background-color: #8c8c8c;
+	color: white;
 }
 /*--------------dropdown------------- */
 .dropdown {
 	position: relative;
 	overflow: hidden;
-
-	/* display: inline-block; */
 }
 
 .dropdown-content {
@@ -107,13 +127,16 @@
 	color: black;
 	/* margin-left: -10px; */
 	/* margin-right: 40px; */
-	padding: 12px 66px;
+	/* padding: 12px 66px; */
 	text-decoration: none;
 	display: block;
+	min-width: 160px;
 }
 
 .dropdown-content a:hover {
-	background-color: #8c8c8c;
+	/* background-color: #8c8c8c; */
+	background-color: #404040;
+	color: white;
 	/* width:160px; */
 	/*  margin-right: 0px;  */
 }
@@ -155,15 +178,17 @@
 
 .footer {
 	position: relative;
-	font-family: left : 0;
-	margin-top: 70px;
+	font-family: 'Raleway';
+	left: 0;
 	bottom: 0;
 	width: 100%;
-	height: 400px;
+	height: 300px;
 	background-color: #25282e;
 	color: white;
-	text-align: center;
-	bottom: 0;
+}
+
+table a {
+	color: black;
 }
 /*--------------------Device Look------------------- */
 .smartphone {
@@ -176,6 +201,8 @@
 	border-top-width: 60px;
 	border-bottom-width: 60px;
 	border-radius: 36px;
+	box-shadow: 5px 10px 18px #888888;
+	margin-bottom: 50px;
 }
 
 /* The horizontal line on the top of the device */
@@ -209,12 +236,27 @@
 /* The screen (or content) of the device */
 .smartphone .content {
 	width: 357px;
-	height: 480px;
+	height: 530px;
 	/* margin-bottom:40px; */
 	background: white;
 	padding: 10px;
 }
 
+.background {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	display: block;
+	background-image: url('pattern.svg');
+	width: 100%;
+	height: 100%;
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+}
 /* --------------------Container------------------- */
 .border {
 	background-color: white;
@@ -267,6 +309,16 @@ hr.custom {
 	background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
 
+.form-group .state {
+	margin: auto;
+	height: 40px;
+	width: 320px;
+	border: #d9d9d9 1px solid;
+	border-radius: 0px;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
 input.form-control {
 	margin: auto;
 	border: #d9d9d9 1px solid;
@@ -305,6 +357,7 @@ input.form-control:focus {
 .filter {
 	float: left;
 	position: fixed;
+	padding-right: 10px;
 	font-family: 'Raleway';
 	font-size: 16px;
 	max-width: 200px;
@@ -413,51 +466,19 @@ input.finput {
 	background-repeat: no-repeat;
 	background-size: 25px 25px;
 	border: none;
-	position: absolute;
-	bottom: 10px;
-	right: -10px;
 	width: 30px;
 	height: 30px;
-	margin: 13px 20px 0 0;
-	z-index: 1;
-}
-
-.tooltip {
-	position: relative;
-	display: inline-block;
-	border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-	visibility: hidden;
-	width: 120px;
-	background-color: black;
-	color: #fff;
-	text-align: center;
-	border-radius: 6px;
-	padding: 5px 0;
-	/* Position the tooltip */
-	position: absolute;
-	z-index: 1;
-	top: 100%;
-	left: 50%;
-	margin-left: -60px;
-}
-
-.tooltip:hover .tooltiptext {
-	visibility: visible;
+	/* margin: 13px 20px 0 0; */
 	z-index: 1;
 }
 
 .nameprice {
+	color: black;
 	text-align: center;
 	background-color: #FFF;
 	font-family: 'Raleway';
 	font-weight: bold;
-	position: absolute;
 	bottom: -5px;
-	left: 10px;
-	margin-left: -10px;
 	width: 200px;
 	height: 50px;
 	/* opacity: 0.4; */
@@ -476,7 +497,7 @@ input.finput {
 }
 
 .mySlides {
-	display: none
+	display: none;
 }
 
 img {
@@ -486,6 +507,7 @@ img {
 /* Slideshow container */
 .slideshow-container {
 	max-width: 1500px;
+	min-height: 700px;
 	position: relative;
 	margin: auto;
 }
@@ -566,4 +588,72 @@ to {
 	.prev, .next, .text {
 		font-size: 11px
 	}
+}
+/* product Description*/
+body {
+	font-family: 'Raleway';
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 10px 10px;
+	font-family: 'Raleway';
+}
+
+h1 {
+	font-family: 'Raleway';
+}
+
+.container-fluid .col-lg-2 .row {
+	margin-bottom: 10px;
+	width: 130px;
+	border-bottom: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
+}
+
+/* Style the images inside the grid */
+.container-fluid .col-lg-2 .row #phsmall {
+	opacity: 0.8;
+	cursor: pointer;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#phsmall {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.container-fluid .col-lg-2 .row #phsmall:hover {
+	opacity: 1;
+}
+
+/* Clear floats after the columns */
+.container-fluid .row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* The expanding image container */
+.container-fluid .col-lg-4 {
+	position: relative;
+	display: block;
+	width: 300px;
+	margin: auto;
+	margin-top: 30px;
+}
+
+/* Closable button inside the expanded image */
+.container-fluid .col-lg-4 .closebtn {
+	position: absolute;
+	top: 10px;
+	right: -50px;
+	color: black;
+	font-size: 35px;
+	cursor: pointer;
+}
+
+.col-lg-6 {
+	float: right;
 }

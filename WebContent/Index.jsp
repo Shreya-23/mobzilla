@@ -10,24 +10,31 @@
 	rel="stylesheet">
 	<script src="js/main.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Mobzilla</title>
 </head>
 <body>
+
 <%@ include file="NavigationBanner.jsp"%>
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
 
 <div class="mySlides">
-  <img src="homepage-images/img1.jpg" style="width:100%">
+<a href="2ProductDesc.shop">
+  <img src="homepage-images/img1.jpg" style="width:100%; height: 100%;">
+</a>
 </div>
 
 <div class="mySlides">
-  <img src="homepage-images/img2.jpg" style="width:100%">
+<a href="3ProductDesc.shop">
+  <img src="homepage-images/img2.jpg" style="width:100% ; height: 100%;">
+</a>
 </div>
 
 <div class="mySlides">
-  <img src="homepage-images/img3.jpg" style="width:100%">
+<a href="4ProductDesc.shop">
+  <img src="homepage-images/img3.jpg" style="width:100% ; height: 100%;">
+</a>
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -41,7 +48,11 @@
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
-
+<br><br>
+<section id="about">
+<div class="footer">
+<%@ include file="Footer.jsp"%>
+</div></section>
 <script type="text/javascript">
 		window.onscroll = function() {
 			myFunction()
@@ -89,12 +100,6 @@
 			dots[slideIndex - 1].className += " active";
 		}
 	</script>
-<section id="about">
-<div class="footer">
-<br>
-  <p>About Us</p>
-</div>
-</section>
 
 </body>
 </html>

@@ -11,5 +11,10 @@ public interface UserRepository {
 	public Boolean registerUser(UserBean user,AddressBean address);
 	public String matchDetails(UserBean user);
 	public boolean changePassword(ForgotBean bean);
+	public AddressBean getUserAddress(LoginBean login);
+	public boolean checkRegistered(UserBean user);
+	public UserBean getProfile(LoginBean login);
+	public boolean checkVerify(String email,String code);
+	public String getCode(UserBean user);
 
 }

@@ -32,6 +32,8 @@ public class CartServiceImpl implements CartService {
 			return repo.addProduct(cart);
 		}
 	}
+	
+	
 
 
 	@Override
@@ -47,6 +49,42 @@ public class CartServiceImpl implements CartService {
 		List<CartBean> cart=repo.getCartProducts(login);
 		
 		return repo.orderProducts(login, cart);
+	}
+
+
+
+
+	@Override
+	public boolean deleteProduct(LoginBean lbean, int productId) {
+		// Tse;ODO Auto-generated method stub
+		
+		return repo.deleteProduct(lbean,productId);
+		
+		
+	}
+
+
+
+
+	@Override
+	public double getTotal(List<CartBean> cartList) {
+		// TODO Auto-generated method stub
+		Double total=0.0;
+		for(int i=0;i<cartList.size();i++) {
+			
+			total=total+cartList.get(i).getTotalPrice();
+		}
+		
+		return total;
+	}
+
+
+
+
+	@Override
+	public List<OrdersBean> getUserOrders(LoginBean login) {
+		// TODO Auto-generated method stub
+		return repo.getUserOrder(login);
 	}
 
 }

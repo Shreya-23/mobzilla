@@ -9,7 +9,7 @@ import com.mobzilla.entity.LoginBean;
 import com.mobzilla.entity.UserBean;
 import com.mobzilla.repository.UserRepository;
 
-import sun.print.resources.serviceui;
+
 
 
 @Service
@@ -21,6 +21,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Boolean registerUser(UserBean user,AddressBean address) {
 		// TODO Auto-generated method stub
+		CodeGenerator code=new CodeGenerator();
+		user.setVerification(code.generateCode());
 		return repo.registerUser(user,address);
 	}
 
@@ -46,6 +48,36 @@ public class UserServiceImpl implements UserService {
 		}
 		else
 		return false;
+	}
+
+	@Override
+	public AddressBean getUserAddress(LoginBean login) {
+		// TODO Auto-generated method stub
+		return repo.getUserAddress(login);
+	}
+
+	@Override
+	public boolean alreadyRegistered(UserBean user) {
+		// TODO Auto-generated method stub
+		return repo.checkRegistered(user);
+	}
+
+	@Override
+	public UserBean getUserDetails(LoginBean login) {
+		// TODO Auto-generated method stub
+		return repo.getProfile(login);
+	}
+
+	@Override
+	public boolean checkVerify(String email,String code) {
+		// TODO Auto-generated method stub
+		return repo.checkVerify(email,code);
+	}
+
+	@Override
+	public String getCode(UserBean user) {
+		// TODO Auto-generated method stub
+		return repo.getCode(user);
 	}
 
 }

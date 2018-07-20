@@ -16,11 +16,15 @@ public interface CartRepository {
 	
 	public boolean addProduct(CartBean cart);
 	
+	public boolean deleteProduct(LoginBean lbean,int productId);
+	
 	public boolean updateProduct(CartBean cart);
 
 	public List<CartBean> getCartProducts(LoginBean login);
 
 	public boolean orderProducts(LoginBean login,List<CartBean> cartList);
+
+	public List<OrdersBean> getUserOrder(LoginBean login);
 
 	
 	

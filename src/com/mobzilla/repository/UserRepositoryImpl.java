@@ -15,103 +15,279 @@ import com.mobzilla.entity.LoginBean;
 import com.mobzilla.entity.UserBean;
 
 @Repository
-public class UserRepositoryImpl implements UserRepository{
-	
+public class UserRepositoryImpl implements UserRepository {
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-	public Boolean registerUser(UserBean user,AddressBean address) {
+	public Boolean registerUser(UserBean user, AddressBean address) {
 		// TODO Auto-generated method stub
-		Session session=null;
-		Transaction txn=null;
+		Session session = null;
+		Transaction txn = null;
 		try {
-			session=sessionFactory.getCurrentSession();
-			txn=session.beginTransaction();
+			session = sessionFactory.openSession();
+			txn = session.beginTransaction();
 			session.save(user);
 			session.save(address);
 			txn.commit();
 			return true;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println(e);
+			txn.rollback();
 			return false;
 		}
-		
+
 	}
 
 	@Override
 	public Boolean validate(LoginBean login) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
-		String hql="FROM UserBean where userEmail=:username AND userPass=:userpass";
-		
-		Transaction txn=session.beginTransaction();
-		Query query=session.createQuery(hql);
-		query.setParameter("username",login.getEmail());
-		query.setParameter("userpass", login.getPassword());
-		//String userName=query.toString();
-		List list=query.list();
-		txn.commit();
-		System.out.println(login.getEmail()+" "+login.getPassword());
-		/*if(userName!=null)
-			return true;
-		else
-			return null;*/
-		
-		if(!list.isEmpty())
-			return true;
-		else
+		Session session = null;
+		Transaction txn = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "FROM UserBean where userEmail=:username AND userPass=:userpass";
+
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setParameter("username", login.getEmail());
+			query.setParameter("userpass", login.getPassword());
+			// String userName=query.toString();
+			List list = query.list();
+			txn.commit();
+			System.out.println(login.getEmail() + " " + login.getPassword());
+			/*
+			 * if(userName!=null) return true; else return null;
+			 */
+
+			if (!list.isEmpty())
+				return true;
+			else
+				return false;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
 			return false;
+		}
 	}
 
 	@Override
 	public String matchDetails(UserBean user) {
 		// TODO Auto-generated method stub
-		
-		Session session=sessionFactory.getCurrentSession();
-		System.out.println("email contact----"+user.getUserContact());
-		String hql="FROM UserBean where userEmail= :useremail AND userContact= :usercontact";
-		
-		Transaction txn=session.beginTransaction();
-		Query query=session.createQuery(hql);
-		
-		query.setParameter("useremail", user.getUserEmail());
-		query.setParameter("usercontact",user.getUserContact());
-		
-		List<UserBean> list=query.list();
-		
-		txn.commit();
-		
-		if(!list.isEmpty())
-			return list.get(0).getUserEmail();
-		else
+		Session session = null;
+		Transaction txn = null;
+
+		try {
+			session = sessionFactory.openSession();
+			System.out.println("email contact----" + user.getUserContact());
+			String hql = "FROM UserBean where userEmail= :useremail AND userContact= :usercontact";
+
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+
+			query.setParameter("useremail", user.getUserEmail());
+			query.setParameter("usercontact", user.getUserContact());
+
+			List<UserBean> list = query.list();
+
+			txn.commit();
+
+			if (!list.isEmpty())
+				return list.get(0).getUserEmail();
+			else
+				return null;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
 			return null;
-		
+		}
+
 	}
 
 	@Override
 	public boolean changePassword(ForgotBean bean) {
 		// TODO Auto-generated method stub
-		
+		Session session = null;
+		Transaction txn = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "UPDATE UserBean user SET user.userPass= :pass WHERE user.userEmail= :email";
 
-		Session session=sessionFactory.getCurrentSession();
-		String hql="UPDATE UserBean user SET user.userPass= :pass WHERE user.userEmail= :email";
-		
-		Transaction txn=session.beginTransaction();
-		Query query=session.createQuery(hql);
-		
-		query.setParameter("pass",bean.getPassword1());
-		query.setParameter("email",bean.getEmail());
-		
-		int res=query.executeUpdate();
-		txn.commit();
-		
-		if(res!=0)
-			return true;
-		else
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+
+			query.setParameter("pass", bean.getPassword1());
+			query.setParameter("email", bean.getEmail());
+
+			int res = query.executeUpdate();
+			txn.commit();
+
+			if (res != 0)
+				return true;
+			else
+				return false;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
 			return false;
+		}
+	}
+
+	@Override
+	public AddressBean getUserAddress(LoginBean login) {
+		// TODO Auto-generated method stub
+		Session session = null;
+		Transaction txn = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "FROM AddressBean where user= :useremail";
+
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+
+			query.setParameter("useremail", login.getEmail());
+
+			List<AddressBean> list = query.list();
+
+			txn.commit();
+
+			if (!list.isEmpty())
+				return list.get(0);
+			else
+				return null;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
+			return null;
+		}
+
+	}
+
+	@Override
+	public boolean checkRegistered(UserBean user) {
+		// TODO Auto-generated method stub
+		Session session = null;
+		Transaction txn = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "FROM UserBean where userEmail=:username";
+
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setParameter("username", user.getUserEmail());
+
+			// String userName=query.toString();
+			List list = query.list();
+			txn.commit();
+
+			/*
+			 * if(userName!=null) return true; else return null;
+			 */
+
+			if (!list.isEmpty())
+				return true;
+			else
+				return false;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
+			return false;
+		}
+	}
+
+	@Override
+	public UserBean getProfile(LoginBean login) {
+
+		Session session = null;
+		Transaction txn = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "FROM UserBean where userEmail=:username";
+
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setParameter("username", login.getEmail());
+
+			// String userName=query.toString();
+			List list = query.list();
+			txn.commit();
+
+			/*
+			 * if(userName!=null) return true; else return null;
+			 */
+
+			if (!list.isEmpty())
+				return (UserBean) list.get(0);
+			else
+				return null;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
+			return null;
+		}
+	}
+
+	@Override
+	public boolean checkVerify(String email, String code) {
+		// TODO Auto-generated method stub
+		Session session = null;
+		Transaction txn = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "FROM UserBean where userEmail=:username AND verification= :verify";
+
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setParameter("username", email);
+			query.setParameter("verify", code);
+			// String userName=query.toString();
+			List list = query.list();
+			txn.commit();
+
+			/*
+			 * if(userName!=null) return true; else return null;
+			 */
+
+			if (!list.isEmpty())
+				return true;
+			else
+				return false;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
+			return false;
+		}
+
+	}
+
+	@Override
+	public String getCode(UserBean user) {
+		// TODO Auto-generated method stub
+
+		Session session = null;
+		Transaction txn = null;
+		try {
+			session = sessionFactory.openSession();
+			String hql = "FROM UserBean where userEmail=:username";
+
+			txn = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setParameter("username", user.getUserEmail());
+
+			List<UserBean> list = query.list();
+			txn.commit();
+
+			if (!list.isEmpty())
+				return list.get(0).getVerification();
+			else
+				return null;
+		} catch (Exception e) {
+			// TODO: handle exception
+			txn.rollback();
+			return null;
+		}
+
 	}
 
 }

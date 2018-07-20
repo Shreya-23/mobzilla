@@ -1,0 +1,62 @@
+@charset "ISO-8859-1";
+
+.container {
+	max-width: 1200px;
+}
+
+.row {
+	max-height: 190px;
+	max-width: 900px;
+}
+
+.row .plmin {
+	max-height: 25px;
+	max-width: 83px;
+	margin-left: 0px;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-left: 2px;
+	background-color: #669999;
+}
+ 
+.col-lg-3 {
+	margin: 20px auto;
+}
+
+.col-lg-5.price {
+	float: right;
+	top:0;
+}
+
+.input-group-addon.plus {
+	background-image: url(css/plus-symbol.svg);
+	background-repeat: no-repeat;
+	background-size: 15px 15px;
+	border: none;
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	/* margin: auto; */
+	padding-top: 5px;
+}
+
+.input-group-addon.minus {
+	background-image: url(css/minus-symbol.svg);
+	background-repeat: no-repeat;
+	background-size: 15px 15px;
+	border: none;
+	/* width: 20px;*/
+	height: 20px;
+	background-color: #fff;
+}
+
+.quant {
+	border: none;
+	font-family: 'Raleway';
+	font-size: 20px;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	margin-top:15px;
+	padding-top: 
+}

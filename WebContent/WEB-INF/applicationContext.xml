@@ -17,6 +17,7 @@
 			<value>  
 				hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
 				hibernate.hbm2ddl.auto=create
+				
 				hibernate.show_sql=true
 				hibernate.current_session_context_class = thread
 			</value>
