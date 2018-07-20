@@ -46,8 +46,10 @@
 			<p>
 			<form>
 				<c:forEach items="${BrandList}" var="brands">
+				<a href="${brands.brandId}home.shop">
 					<label class="checkbox"><c:out value="${brands.brandName}" /><input
 						type="checkbox"> <span class="checkmark"></span></label>
+						</a>
 				</c:forEach>
 				<div class="vl"></div>
 			</form>

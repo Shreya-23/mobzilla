@@ -14,6 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
 import com.mobzilla.entity.AddressBean;
+import com.mobzilla.entity.ErrorBean;
 import com.mobzilla.entity.ForgotBean;
 import com.mobzilla.entity.LoginBean;
 import com.mobzilla.entity.UserBean;
@@ -37,9 +38,13 @@ public class UserController {
 
 	@Autowired
 	private CartService cartService;
+	
+	
 
 	@RequestMapping(value = "LoginUser.shop")
 	public String loginUser(LoginBean login, Model model) {
+		
+		try{
 
 		if (service.validate(login)) {
 			System.out.println("user found------------");
@@ -53,17 +58,32 @@ public class UserController {
 			model.addAttribute("BrandList", homeService.getAllBrands());
 			return "Login";
 		}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			
+			model.addAttribute("return", "LoginUser.shop");
+			return "errpage";
+		}
 	}
 
 	@RequestMapping(value = "LoginPage.shop")
 	public String loginPage(Model model) {
+		try{
 		model.addAttribute("BrandList", homeService.getAllBrands());
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("return", "LoginPage.shop");
+			return "errpage";
+		}
 		return "Login";
 	}
 
 	@RequestMapping(value = "RegisterUser.shop")
 	public String registerUser(UserBean user, Model model) {
 
+		try{
 		System.out.println(user.getUserLastName());
 
 		model.addAttribute("personalDetails", user);
@@ -74,11 +94,18 @@ public class UserController {
 			return "Login";
 		} else
 			return "Address";
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("return", "RegisterUser.shop");
+			return "errpage";
+		}
 	}
 
 	@RequestMapping(value = "AddAddress.shop")
 	public String addAddress(@ModelAttribute("personalDetails") UserBean user, AddressBean address, Model model) {
 
+		try{
 		System.out.println(user.getUserEmail());
 		System.out.println(address.getAddressLine1());
 		address.setUser(user.getUserEmail());
@@ -91,6 +118,12 @@ public class UserController {
 			model.addAttribute("ProductList", homeService.getAllProducts());
 			return "Home";
 		}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("return", "RegisterUser.shop");
+			return "errpage";
+		}
 	}
 
 	@RequestMapping(value = "forgotPassword.shop")
@@ -100,7 +133,8 @@ public class UserController {
 
 	@RequestMapping(value = "newPass.shop")
 	public String forgotPassword(UserBean user, Model model) {
-
+		
+		try{
 		// fBean=new ForgotBean();
 		SmsSender sms = new SmsSender();
 		String email = service.matchDetails(user);
@@ -114,12 +148,18 @@ public class UserController {
 			model.addAttribute("isPhoneCorrect", "false");
 			return "ForgotPassword";
 		}
+		}catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("return", "forgotPassword.shop");
+			return "errpage";
+		}
 	}
 
 	@RequestMapping(value = "otp.shop")
 	public String verifyOTP(@ModelAttribute("vbean") VerificationBean vBean,
 			@ModelAttribute("userEmail") ForgotBean bean, Model model) {
-
+		
+		try{
 		System.out.println(vBean.getCode());
 
 		if (service.checkVerify(bean.getEmail(), vBean.getCode())) {
@@ -128,11 +168,18 @@ public class UserController {
 			model.addAttribute("noOtp", "true");
 			return "ForgotPassword";
 		}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("return", "forgotPassword");
+			return "errpage";
+		}
 	}
 
 	@RequestMapping(value = "ChangePass.shop", method = RequestMethod.POST)
 	public String changePassword(@ModelAttribute("userEmail") ForgotBean bean, Model model) {
 
+		try{
 		if (service.changePassword(bean)) {
 			model.addAttribute("passChaged", "true");
 			return "Login";
@@ -141,6 +188,12 @@ public class UserController {
 			model.addAttribute("userEmail", bean);
 			model.addAttribute("doPassMatch", "false");
 			return "ReEnterPass";
+		}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("return", "forgotPassword.shop");
+			return "errpage";
 		}
 
 	}
