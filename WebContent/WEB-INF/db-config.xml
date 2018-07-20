@@ -10,8 +10,8 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<property name="username" value="admin" />
-		<property name="password" value="harshit" />
+		<property name="username" value="mobzilla" />
+		<property name="password" value="mobzilla" />
 	</bean>
 
 </beans>

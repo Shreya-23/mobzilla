@@ -40,7 +40,7 @@
 			<div class="form-group">
 				<label for="email">EMAIL<span class="star">*</span></label> <input
 					type="email" class="form-control" placeholder="Enter Email"
-					name="userEmail" id="email_val"  pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+					name="userEmail" id="email_val"  pattern="[a-z0-9._]+@[a-z.-]+\.[a-z]{2,3}$" title="eg: abc@xyz.com">
 			</div>
 			<div class="form-group">
 				<label for="pwd">PASSWORD<span class="star">*</span></label> <input
@@ -49,7 +49,7 @@
 			</div>
 			<div class="form-group">
 				<label for="contact">PHONE NUMBER<span class="star">*</span></label>
-				<input type="text" class="form-control" placeholder="Enter password" id="mobilenumber"
+				<input type="text" class="form-control" placeholder="Enter phone number" id="mobilenumber"
 					name="userContact" pattern="[6-9]{1}[0-9]{9}" title="10-digit MOBILE NUMBER ONLY">
 			</div>
 			<button type="submit" class="btnN" name="next">NEXT</button>

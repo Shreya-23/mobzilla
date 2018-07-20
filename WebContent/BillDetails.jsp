@@ -17,9 +17,9 @@
 <body>
 
 	<%@ include file="NavigationBanner.jsp"%>
-
+	<a href="Thankyou.shop">
 	<button class="btn btn-primary" onclick="generatePDF()">Save
-		as PDF</button>
+		as PDF</button></a>
 	<div id="formConfirmation">
 		<div class="container">
 			<center>

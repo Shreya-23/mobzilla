@@ -19,15 +19,14 @@ body {
 }
 </style>
 
-
 </head>
 <body>
 
 	<%@ include file="NavigationBanner.jsp"%>
-	<div class="container">
+	<div class="container-fluid">
 		<center>
 			<h1>About Mobzilla</h1>
-		</center>
+		
 		<br>
 		<hr class="custom">
 		<br>
@@ -43,15 +42,15 @@ body {
 					<h3>Our Services</h3>
 
 					<p>
-						<img src="rupee.svg" style="height: 20px; width: 20px;">
+						<img src="css/rupee.svg" style="height: 20px; width: 20px;">
 						Cash On Delivery
 					</p>
 					<p>
-						<img src="plane.svg" style="height: 20px; width: 20px;">
+						<img src="css/plane.svg" style="height: 20px; width: 20px;">
 						Delivery All Over India
 					</p>
 					<p>
-						<img src="replacement.svg" style="height: 20px; width: 20px;">
+						<img src="css/replacement.svg" style="height: 20px; width: 20px;">
 						15 Days Easy Replacement
 					</p>
 				</div>
@@ -63,7 +62,7 @@ body {
 				</div>
 				<div>
 					<h3>
-						<img src="contact.svg" style="height: 20px; width: 20px;">
+						<img src="css/contact.svg" style="height: 20px; width: 20px;">
 						Contact Us
 					</h3>
 					<p>Email Us : mobzilla@lntinfotech.com</p>
@@ -73,7 +72,7 @@ body {
 			<div class="col-lg-6">
 				<img src="css/dinosaur.jpg" style="height: 380px; width: 380px;">
 			</div>
-		</div>
+		</div></center>
 	</div>
 
 </body>

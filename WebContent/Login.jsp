@@ -31,7 +31,7 @@
 					<label for="email">EMAIL ADDRESS<span class="star">*</span></label>
 					<input type="email" class="form-control" placeholder="Enter email"
 						name="email" id="email_val"
-						pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+						pattern="[a-z0-9._%+-]+@[a-z.-]+\.[a-z]{2,3}$"  title="eg: abc@xyz.com">
 				</div>
 				<div class="form-group">
 					<label for="pwd">PASSWORD<span class="star">*</span></label> <input

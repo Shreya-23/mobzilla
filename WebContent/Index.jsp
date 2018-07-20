@@ -8,7 +8,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
 	rel="stylesheet">
-	<script src="js/main.js" type="text/javascript"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Mobzilla</title>
 </head>
@@ -54,20 +54,6 @@
 <%@ include file="Footer.jsp"%>
 </div></section>
 <script type="text/javascript">
-		window.onscroll = function() {
-			myFunction()
-		};
-
-		var navbar = document.getElementById("navbar");
-		var sticky = navbar.offsetTop;
-
-		function myFunction() {
-			if (window.pageYOffset >= sticky) {
-				navbar.classList.add("sticky")
-			} else {
-				navbar.classList.remove("sticky");
-			}
-		}
 
 		var slideIndex = 1;
 		showSlides(slideIndex);

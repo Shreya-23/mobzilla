@@ -9,7 +9,7 @@
 <body>
 	<h1>Sorry!The request cannot be processed at this moment</h1>
 	<hr>
-	<a href="allProducts.shop">Return Home</a>
+	<a href="Index.shop">Return Home</a>
 	
 	</body>
 </html>
