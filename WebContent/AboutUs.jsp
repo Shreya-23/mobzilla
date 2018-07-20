@@ -2,8 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<title>About Us</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 <link href="css/home.css" rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Muli|PT+Sans|Philosopher|Raleway"
@@ -17,10 +18,12 @@ body {
 	font-family: 'Raleway';
 }
 </style>
+
+
+</head>
 <body>
 
-<%@ include file="NavigationBanner.jsp"%>
-
+	<%@ include file="NavigationBanner.jsp"%>
 	<div class="container">
 		<center>
 			<h1>About Mobzilla</h1>
@@ -60,7 +63,8 @@ body {
 				</div>
 				<div>
 					<h3>
-						<img src="contact.svg" style="height: 20px; width: 20px;"> Contact Us
+						<img src="contact.svg" style="height: 20px; width: 20px;">
+						Contact Us
 					</h3>
 					<p>Email Us : mobzilla@lntinfotech.com</p>
 					<p>Contact Us : 10008008</p>
@@ -71,5 +75,6 @@ body {
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

@@ -86,7 +86,7 @@
 		</div>
 		<%-- <a class="active" href="0/home.shop">${userEmail.email}</a> --%>
 		<!-- --------------------------------------------------------explore--------------------- -->
-		<a href="#about">About Us</a> <a href="showCart.shop"
+		<a href="aboutUs.shop">About Us</a> <a href="showCart.shop"
 			style="float: right;">
 			<button id="cart"></button>
 		</a>

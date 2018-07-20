@@ -35,9 +35,12 @@ public class CartController {
 	@Autowired
 	private HomeService homeService;
 
+	
+	//Takes productId from path variable and email from session and to CartService to add into cart_table
 	@RequestMapping(value = "{pid}addToCart.shop")
 	public String addProductToCart(@PathVariable("pid") int productId, HttpSession session, Model model) {
 		try {
+			//check if user is login
 			if (session.getAttribute("userLogin") != null) {
 				LoginBean lbean = (LoginBean) session.getAttribute("userLogin");
 				CartBean cart = new CartBean();
@@ -47,9 +50,8 @@ public class CartController {
 				cart.setProductImage(product.getProductImgUrl());
 				cart.setProductName(product.getProductName());
 				cart.setUnitPrice(product.getProductPrice());
-
+			//Add to cart 
 				if (cartService.addProduct(cart))
-					;
 				{
 					LoginBean login = (LoginBean) session.getAttribute("userLogin");
 					List<CartBean> cartList = cartService.getCartProducts(login);
@@ -57,13 +59,21 @@ public class CartController {
 					total.setTotal(cartService.getTotal(cartList));
 					model.addAttribute("cartProducts", cartList);
 					model.addAttribute("grandTotal", total);
-
+					
+					model.addAttribute("BrandList", homeService.getAllBrands());
+					
 					return "Cart";
 
 				}
+				else{
+					model.addAttribute("BrandList", homeService.getAllBrands());
+					return "Cart";
+				}
 
-			} else
+			}
+			else{
 				return "Login";
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("return", "showCart.shop");
@@ -71,28 +81,34 @@ public class CartController {
 		}
 	}
 
+	
+	//delete item from cart
 	@RequestMapping(value = "{pid}deleteFromCart.shop")
 	public String deleteProductFromCart(@PathVariable("pid") int productId, HttpSession session, Model model) {
 
-		try {
+		try {//check if user logged in
 			if (session.getAttribute("userLogin") != null) {
 				LoginBean lbean = (LoginBean) session.getAttribute("userLogin");
+				//delete item
 				if (cartService.deleteProduct(lbean, productId)) {
 					LoginBean login = (LoginBean) session.getAttribute("userLogin");
 					List<CartBean> cartList = cartService.getCartProducts(login);
-
+					//re-populate cart list
 					TotalBean total = new TotalBean();
 					total.setTotal(cartService.getTotal(cartList));
 					model.addAttribute("cartProducts", cartList);
 					model.addAttribute("grandTotal", total);
-
+					model.addAttribute("BrandList", homeService.getAllBrands());
+					
 					return "Cart";
 				} else {
-					return "Home";
+					model.addAttribute("BrandList", homeService.getAllBrands());
+					return "Cart";
 				}
 
-			} else
+			} else{
 				return "Login";
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("return", "showCart.shop");
@@ -100,9 +116,11 @@ public class CartController {
 		}
 	}
 
+	//shows item in cart
 	@RequestMapping(value = "showCart.shop")
 	public String showCart(Model model, HttpSession session) {
 		try {
+			//check if login
 			LoginBean login = (LoginBean) session.getAttribute("userLogin");
 			if (login != null) {
 				List<CartBean> cartList = cartService.getCartProducts(login);
@@ -110,9 +128,14 @@ public class CartController {
 				total.setTotal(cartService.getTotal(cartList));
 				model.addAttribute("cartProducts", cartList);
 				model.addAttribute("grandTotal", total);
+				model.addAttribute("BrandList", homeService.getAllBrands());
+				
 				return "Cart";
-			} else
+			} else{
+				
+				model.addAttribute("BrandList", homeService.getAllBrands());
 				return "Login";
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			model.addAttribute("return", "showCart.shop");
@@ -134,7 +157,6 @@ public class CartController {
 
 			Boolean success = cartService.orderProducts(login);
 			model.addAttribute("BrandList", homeService.getAllBrands());
-			model.addAttribute("ProductList", homeService.getAllProducts());
 
 			return "BillDetails";
 		} catch (Exception e) {
@@ -156,6 +178,8 @@ public class CartController {
 				model.addAttribute("cartProducts", cartList);
 				model.addAttribute("grandTotal", total);
 				model.addAttribute("address", userService.getUserAddress(login));
+				model.addAttribute("BrandList", homeService.getAllBrands());
+				
 				return "OrderDetails";
 			} else
 				return "Home";

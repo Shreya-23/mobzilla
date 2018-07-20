@@ -50,13 +50,14 @@ public class UserController {
 		} else {
 			System.out.println("user not found------------");
 			model.addAttribute("userNotFound", "true");
+			model.addAttribute("BrandList", homeService.getAllBrands());
 			return "Login";
 		}
 	}
 
 	@RequestMapping(value = "LoginPage.shop")
 	public String loginPage(Model model) {
-
+		model.addAttribute("BrandList", homeService.getAllBrands());
 		return "Login";
 	}
 
@@ -83,7 +84,7 @@ public class UserController {
 		address.setUser(user.getUserEmail());
 		Boolean isRegistered = service.registerUser(user, address);
 		if (isRegistered) {
-			return "Login";
+			return "Welcome";
 		} else {
 
 			model.addAttribute("BrandList", homeService.getAllBrands());
@@ -149,6 +150,7 @@ public class UserController {
 
 		status.setComplete();
 		model.addAttribute("userLogin", null);
+		model.addAttribute("BrandList", homeService.getAllBrands());
 		return "Index";
 	}
 
@@ -158,7 +160,6 @@ public class UserController {
 		try {
 			LoginBean login = (LoginBean) session.getAttribute("userLogin");
 			model.addAttribute("BrandList", homeService.getAllBrands());
-			model.addAttribute("ProductList", homeService.getAllProducts());
 			model.addAttribute("address", service.getUserAddress(login));
 			model.addAttribute("user", service.getUserDetails(login));
 			model.addAttribute("orders", cartService.getUserOrders(login));

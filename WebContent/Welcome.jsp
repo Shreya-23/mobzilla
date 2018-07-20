@@ -61,7 +61,7 @@ body {
 			<h1>Welcome To Mobzilla</h1>
 			<br>
 		</div>
-		<button class="btn" onclick="Home.jsp">Shop Now</button>
+		<button class="btn" onclick="allProducts.shop">Shop Now</button>
 	</center>
 </body>
 </html>

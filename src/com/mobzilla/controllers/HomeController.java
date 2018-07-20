@@ -69,6 +69,9 @@ public class HomeController {
 			model.addAttribute("ProductDesc", pBean);
 			model.addAttribute("Images", pBean.getProductImgsUrl().split(";"));
 			model.addAttribute("ProductSpecs", service.getProductSpecs(id));
+			
+			model.addAttribute("BrandList", service.getAllBrands());
+			
 			System.out.println("desc page started image:" + service.getProductDesc(id).getProductImgUrl());
 			return "ProductDescription";
 		} catch (Exception e) {
@@ -84,6 +87,13 @@ public class HomeController {
 		model.addAttribute("cartProducts", service.getProductDesc(id));
 		System.out.println("desc page started image:" + service.getProductDesc(id).getProductImgUrl());
 		return "ProductDesc";
+	}
+	
+	@RequestMapping(value = "aboutUs.shop", method = RequestMethod.GET)
+	public String addToCart(Model model) {
+		
+		model.addAttribute("BrandList", service.getAllBrands());
+		return "AboutUs";
 	}
 
 }
